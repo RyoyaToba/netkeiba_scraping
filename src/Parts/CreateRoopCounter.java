@@ -31,7 +31,7 @@ public class CreateRoopCounter {
 			break;
 		case 5: // 東京
 			countNumCounter = 5;
-			dayNumCounter = 11;
+			dayNumCounter = 9;
 			break;
 		case 6: // 中山
 			countNumCounter = 5;

@@ -21,7 +21,7 @@ import Parts.DBManager;
 public class InsertCreaterRaceResult {
 	public static void main(String[] args) throws IOException {
 
-		String year = "2007";
+		String year = "2006";
 
 		PreparedStatement pstmt = null;
 		String sql = "";
@@ -104,14 +104,14 @@ public class InsertCreaterRaceResult {
 
 							} catch (Exception e) {
 								e.printStackTrace();
+							} finally {
+								DBManager.closeConnection(con);
 							}
-
 							System.out.println(
 									"INSERT INTO race_result (race_id, rank, waku, horse_number, horse_name, gender, age, jockey_weight, jockey_name, race_time) VALUES ('"
 											+ raceId + "'," + newRank + "," + waku + "," + horseNumber + "," + "'"
 											+ horseName + "'," + "'" + gender + "'," + age + "," + jockeyWeight + ","
 											+ "'" + jockeyName + "'," + "'" + raceTime + "');");
-
 						}
 					}
 				}

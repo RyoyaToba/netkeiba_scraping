@@ -79,7 +79,6 @@ public class InsertCreaterTansho {
 								e.printStackTrace();
 							} finally {
 								DBManager.closeConnection(con);
-
 							}
 						}
 					}

@@ -101,6 +101,8 @@ public class InsertCreaterRaceInfo {
 
 						} catch (Exception e) {
 							e.printStackTrace();
+						} finally {
+							DBManager.closeConnection(con);
 						}
 
 						System.out.println(

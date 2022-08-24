@@ -38,14 +38,16 @@ public class CreateRaceResultOldStyle {
 				rank = element.text();
 			}
 
-			if (rank.equals("除外")) {
+			if (rank.equals("除")) {
 				rank = "-1";
-			} else if (rank.equals("中止")) {
+			} else if (rank.equals("中")) {
 				rank = "99";
-			} else if (rank.equals("取消")) {
+			} else if (rank.equals("取")) {
 				rank = "0";
-			} else if (rank.equals("失格")) {
+			} else if (rank.equals("失")) {
 				rank = "100";
+			} else if (rank.contains("(降)")) {
+				rank = rank.replace("(降)", "");
 			}
 
 			raceResult.setRaceId(raceId);
