@@ -1,4 +1,4 @@
-# JSOUPを用いたNetkeibaWebスクレイピングコード
+# Jsoupを用いたNetkeibaWebスクレイピングコード
 
 学習用のデータをネット上から取得するため、Javaのサードパーティである[JSOUP](https://jsoup.org/download)を活用したスクレイピングを行なっています。
 
@@ -8,7 +8,7 @@
 
 ## 使用しているライブラリ
 
-* JSOUP-jar(1.14.3)
+* Jsoup-jar(1.14.3)
 * Postgresql-jar(42.3.4)
 
 ## 用途
