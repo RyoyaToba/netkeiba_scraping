@@ -12,7 +12,7 @@ public class CreateRoopCounter {
 		Integer countNumCounter = 0;
 		Integer dayNumCounter = 0;
 
-		switch (placeNum) {
+		switch (placeNum) {// 2005
 		case 1: // 札幌
 			countNumCounter = 2; // 回
 			dayNumCounter = 8; // 日
@@ -23,7 +23,7 @@ public class CreateRoopCounter {
 			break;
 		case 3: // 福島
 			countNumCounter = 3;
-			dayNumCounter = 10;
+			dayNumCounter = 8;
 			break;
 		case 4: // 新潟
 			countNumCounter = 3;
@@ -31,7 +31,7 @@ public class CreateRoopCounter {
 			break;
 		case 5: // 東京
 			countNumCounter = 5;
-			dayNumCounter = 9;
+			dayNumCounter = 8;
 			break;
 		case 6: // 中山
 			countNumCounter = 5;
@@ -39,11 +39,11 @@ public class CreateRoopCounter {
 			break;
 		case 7: // 中京
 			countNumCounter = 3;
-			dayNumCounter = 10;
+			dayNumCounter = 8;
 			break;
 		case 8: // 京都
 			countNumCounter = 5;
-			dayNumCounter = 9;
+			dayNumCounter = 8;
 			break;
 		case 9: // 阪神
 			countNumCounter = 5;

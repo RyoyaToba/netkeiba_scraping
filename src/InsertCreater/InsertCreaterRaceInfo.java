@@ -22,7 +22,7 @@ import Parts.ReplacePlaceNumberPosition;
 public class InsertCreaterRaceInfo {
 	public static void main(String[] args) throws IOException {
 
-		String year = "2007";
+		String year = "2022";
 
 		PreparedStatement pstmt = null;
 		String sql = "";
@@ -38,7 +38,7 @@ public class InsertCreaterRaceInfo {
 		CreateRaceId createRaceId = new CreateRaceId();
 
 		/* 場所のループ */// 札幌01 函館02 福島03 新潟04 東京05 中山06 中京07 京都08 阪神09 小倉10
-		for (int placeNum = 1; placeNum <= 10; placeNum++) {
+		for (int placeNum = 5; placeNum <= 5; placeNum++) {
 
 			/* カウンタの指定。年によって自分でCreateRoopCounter内の数値を変更 */
 			Map<String, Integer> counterMap = createRoopCounter.createRoopCounter(placeNum);

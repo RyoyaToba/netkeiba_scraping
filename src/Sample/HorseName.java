@@ -1,28 +1,25 @@
 package Sample;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 
-//ここで活動中
-//SQL文の形で取得することができます
+import Parts.DBManager;
+
 public class HorseName {
-//	<div class="DataBox_01">
-//	<h2 class="LimitsWidth">ジュタロウ</h2>
-//	<p>牡&nbsp;2019年&nbsp;&nbsp;5戦2勝</p>
-//	<p>父:Arrogate</p>
-//	<p>母:Bodacious Babe</p>
-//	</div>
-//https://db.sp.netkeiba.com/?pid=horse_list&word=&sire=&mare=&bms=&trainer=&owner=&breeder=&under_age=2&over_age=none&prize_min=&prize_max=&retired=1&sort=access&submit=
-//https://db.sp.netkeiba.com/?pid=horse_list&word=&sire=&mare=&bms=&trainer=&owner=&breeder=&under_age=2&over_age=none&prize_min=&prize_max=&retired=1&sort=access&submit=&page=2
 
 	public static void main(String[] args) throws IOException {
 
-		for (int i = 1901; i <= 2000; i++) {// 2000までとった
+		PreparedStatement pstmt = null;
+
+		for (int i = 4573; i <= 5000; i++) {// 4572までとった 全部で26800ページ
 			try {
-				Thread.sleep(1 * 1000);
+				Thread.sleep(1 * 3000);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
@@ -67,11 +64,25 @@ public class HorseName {
 					mother = sb.toString();
 				}
 
-				System.out.println("INSERT INTO horse_profile(name,birth_year,gender,father,mother)" + " VALUES" + "("
-						+ "'" + horseName + "'" + "," + "'" + birth + "'" + "," + "'" + gender + "'" + "," + "'"
-						+ father + "'" + "," + "'" + mother + "'" + ");");
+				Connection con = DBManager.createConnection();
+				try {
+					String sql = "INSERT INTO horse_profile(name,birth_year,gender,father,mother)" + " VALUES" + "("
+							+ "'" + horseName + "'" + "," + "'" + birth + "'" + "," + "'" + gender + "'" + "," + "'"
+							+ father + "'" + "," + "'" + mother + "'" + ")";
+
+					System.out.println("INSERT INTO horse_profile(name,birth_year,gender,father,mother)" + " VALUES"
+							+ "(" + "'" + horseName + "'" + "," + "'" + birth + "'" + "," + "'" + gender + "'" + ","
+							+ "'" + father + "'" + "," + "'" + mother + "'" + ");");
+					pstmt = con.prepareStatement(sql);
+					pstmt.executeUpdate();
+
+				} catch (SQLException e) {
+					e.printStackTrace();
+				} finally {
+					DBManager.closeConnection(con);
+				}
 			}
+			System.err.println(i + "finish!");
 		}
 	}
-
 }
