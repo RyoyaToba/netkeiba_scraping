@@ -1,4 +1,4 @@
-package InsertCreater;
+package Sample;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -18,10 +18,10 @@ import Parts.DBManager;
  * 過去のレース結果を取得するメソッドです。 raceId rank waku horseNumber horseName gender age
  * jockeyWright jockeyName raceTime
  */
-public class InsertCreaterRaceResult {
+public class InsertCreaterRecentRaceResult {
 	public static void main(String[] args) throws IOException {
 
-		String year = "2005";
+		String year = "2022";
 
 		PreparedStatement pstmt = null;
 		String sql = "";
@@ -44,7 +44,7 @@ public class InsertCreaterRaceResult {
 			dayNumCounter = counterMap.get("dayNumCounter");
 
 			/* 回数のループ */
-			for (int countNum = 1; countNum <= countNumCounter; countNum++) {
+			for (int countNum = 2; countNum <= countNumCounter; countNum++) {
 				/* 日付のループ */
 				for (int dayNum = 1; dayNum <= dayNumCounter; dayNum++) {
 					/* レースRのループ */
@@ -78,7 +78,7 @@ public class InsertCreaterRaceResult {
 							raceResultList = createRaceResultoldStyle.createRaceResultNewStyle(raceId);
 						}
 
-						Connection con = DBManager.createConnection();
+						//Connection con = DBManager.createConnection();
 
 						for (int i = 0; i < raceResultList.size(); i++) {
 							raceResult = raceResultList.get(i);
@@ -93,25 +93,25 @@ public class InsertCreaterRaceResult {
 							jockeyName = raceResult.getJockeyName();
 							raceTime = raceResult.getRaceTime();
 
-							try {
-								sql = "INSERT INTO race_result (race_id, rank, waku, horse_number, horse_name, gender, age, jockey_weight, jockey_name, race_time) VALUES ('"
-										+ raceId + "'," + newRank + "," + waku + "," + horseNumber + "," + "'"
-										+ horseName + "'," + "'" + gender + "'," + age + "," + jockeyWeight + "," + "'"
-										+ jockeyName + "'," + "'" + raceTime + "');";
-
-								pstmt = con.prepareStatement(sql);
-								pstmt.executeUpdate();
-
-							} catch (Exception e) {
-								e.printStackTrace();
-							}
+//							try {
+//								sql = "INSERT INTO race_result (race_id, rank, waku, horse_number, horse_name, gender, age, jockey_weight, jockey_name, race_time) VALUES ('"
+//										+ raceId + "'," + newRank + "," + waku + "," + horseNumber + "," + "'"
+//										+ horseName + "'," + "'" + gender + "'," + age + "," + jockeyWeight + "," + "'"
+//										+ jockeyName + "'," + "'" + raceTime + "');";
+//
+//								pstmt = con.prepareStatement(sql);
+//								pstmt.executeUpdate();
+//
+//							} catch (Exception e) {
+//								e.printStackTrace();
+//							}
 							System.out.println(
 									"INSERT INTO race_result (race_id, rank, waku, horse_number, horse_name, gender, age, jockey_weight, jockey_name, race_time) VALUES ('"
 											+ raceId + "'," + newRank + "," + waku + "," + horseNumber + "," + "'"
 											+ horseName + "'," + "'" + gender + "'," + age + "," + jockeyWeight + ","
 											+ "'" + jockeyName + "'," + "'" + raceTime + "');");
 						}
-						DBManager.closeConnection(con);
+						//DBManager.closeConnection(con);
 					}
 				}
 			}
