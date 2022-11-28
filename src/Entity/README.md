@@ -2,11 +2,11 @@
 
 スクレイピングにより取得したデータを格納するクラス。
 
-### TansyoEntity
+### TanshoEntity
 
 単勝の情報を格納するクラス
 
-### FukusyoEntity
+### FukushoEntity
 
 複勝の情報を格納するクラス
 
