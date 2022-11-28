@@ -6,4 +6,6 @@
 
 ### FukusyoEntity
 
+### RaceInfoEntity
+
 ### 
