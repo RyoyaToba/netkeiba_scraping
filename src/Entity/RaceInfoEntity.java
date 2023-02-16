@@ -7,7 +7,7 @@ public class RaceInfoEntity {
 	private String raceNumber;
 	private String raceName;
 	private String raceDetail;
-	private String feild;
+	private String field;
 
 	public String getRaceId() {
 		return raceId;
@@ -50,11 +50,11 @@ public class RaceInfoEntity {
 	}
 
 	public String getFeild() {
-		return feild;
+		return field;
 	}
 
 	public void setFeild(String feild) {
-		this.feild = feild;
+		this.field = feild;
 	}
 
 }

@@ -13,7 +13,7 @@ import Parts.DBManager;
 import Parts.ReplacePlaceNumberPosition;
 
 /**
- * 過去のレース情報を取得するメソッドです。 raceId raceDay raceNumber raceName raceDetail feild
+ * 過去のレース情報を取得するメソッドです。
  * 
  * @author r-toba
  *
@@ -91,20 +91,20 @@ public class InsertCreaterRaceInfo {
 
             Connection con = DBManager.createConnection();
 
-            try {
-              sql =
-                  "INSERT INTO race_info (race_id, race_day, race_number, race_name, race_detail, feild) VALUES('"
-                      + raceId + "'," + "'" + raceDay + "'," + "'" + raceNumber + "'," + "'"
-                      + raceName + "'," + "'" + raceDetail + "'," + "'" + feild + "');";
-
-              pstmt = con.prepareStatement(sql);
-              pstmt.executeUpdate();
-
-            } catch (Exception e) {
-              e.printStackTrace();
-            } finally {
-              DBManager.closeConnection(con);
-            }
+            //try {
+//              sql =
+//                  "INSERT INTO race_info (race_id, race_day, race_number, race_name, race_detail, feild) VALUES('"
+//                      + raceId + "'," + "'" + raceDay + "'," + "'" + raceNumber + "'," + "'"
+//                      + raceName + "'," + "'" + raceDetail + "'," + "'" + feild + "');";
+//
+//              pstmt = con.prepareStatement(sql);
+//              pstmt.executeUpdate();
+//
+//            } catch (Exception e) {
+//              e.printStackTrace();
+//            } finally {
+//              DBManager.closeConnection(con);
+//            }
 
             System.out.println(
                 "INSERT INTO race_info (race_id, race_day, race_number, race_name, race_detail, feild) VALUES('"
