@@ -6,9 +6,9 @@ import java.sql.SQLException;
 
 public class DBManager {
 
-	private final static String DB_URL = "";//DBURL
-	private final static String USER_NAME = "";//UserName 
-	private final static String PASSWORD = "";//password
+	private final static String DB_URL = "jdbc:postgresql://localhost:5432/horse";//DBURL
+	private final static String USER_NAME = "postgres";//UserName
+	private final static String PASSWORD = "postgres";//password
 
 	/* DBに接続するメソッド */
 	public static Connection createConnection() {
