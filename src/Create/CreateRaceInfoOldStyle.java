@@ -7,13 +7,13 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import Entity.RaceInfoEntity;
+import Entity.race.RaceInfo;
 
 public class CreateRaceInfoOldStyle {
 
-	public RaceInfoEntity createEntityOldStyle(String raceId) throws IOException {
+	public RaceInfo createEntityOldStyle(String raceId) throws IOException {
 
-		RaceInfoEntity raceInfo = new RaceInfoEntity();
+		RaceInfo raceInfo = new RaceInfo();
 
 		String url = "https://db.netkeiba.com/race/" + raceId + "/";
 

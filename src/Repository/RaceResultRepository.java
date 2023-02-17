@@ -1,4 +1,4 @@
-package InsertCreater;
+package Repository;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -9,16 +9,16 @@ import java.util.Map;
 
 import Create.CreateRaceResultNewStyle;
 import Create.CreateRaceResultOldStyle;
-import Entity.RaceResultEntity;
-import Parts.CreateRaceId;
-import Parts.CreateRoopCounter;
-import Parts.DBManager;
+import Entity.race.RaceResult;
+import Utility.CreateRaceId;
+import Utility.CreateRoopCounter;
+import Utility.DBManager;
 
 /**
  * 過去のレース結果を取得するメソッドです。 raceId rank waku horseNumber horseName gender age
  * jockeyWright jockeyName raceTime
  */
-public class InsertCreaterRaceResult {
+public class RaceResultRepository {
 	public static void main(String[] args) throws IOException {
 
 		String year = "2005";
@@ -30,7 +30,7 @@ public class InsertCreaterRaceResult {
 		int dayNumCounter = 0; // 最大で何日目まであるのか
 
 		CreateRoopCounter createRoopCounter = new CreateRoopCounter();
-		RaceResultEntity raceResult = new RaceResultEntity();
+		RaceResult raceResult = new RaceResult();
 		CreateRaceResultNewStyle createRaceResultNewStyle = new CreateRaceResultNewStyle();
 		CreateRaceResultOldStyle createRaceResultoldStyle = new CreateRaceResultOldStyle();
 		CreateRaceId createRaceId = new CreateRaceId();
@@ -70,7 +70,7 @@ public class InsertCreaterRaceResult {
 						String jockeyName = "";
 						String raceTime = "";
 
-						List<RaceResultEntity> raceResultList = new ArrayList<>();
+						List<RaceResult> raceResultList = new ArrayList<>();
 
 						if (Integer.parseInt(year) >= 2008) {
 							raceResultList = createRaceResultNewStyle.createRaceResultNewStyle(raceId);

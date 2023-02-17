@@ -1,4 +1,4 @@
-## InsertCreater
+## Repository
 
 DBへ格納するクラス群
 

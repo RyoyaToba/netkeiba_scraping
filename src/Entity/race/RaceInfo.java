@@ -1,6 +1,6 @@
-package Entity;
+package Entity.race;
 
-public class RaceInfoEntity {
+public class RaceInfo {
 
 	private String raceId;
 	private String raceDay;

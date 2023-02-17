@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
-import Parts.DBManager;
+import Utility.DBManager;
 
 public class HorseName {
 

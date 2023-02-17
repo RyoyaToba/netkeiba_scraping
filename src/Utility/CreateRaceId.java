@@ -1,4 +1,4 @@
-package Parts;
+package Utility;
 
 public class CreateRaceId {
 

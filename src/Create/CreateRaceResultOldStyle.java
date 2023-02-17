@@ -4,16 +4,15 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import Entity.race.RaceResult;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import Entity.RaceResultEntity;
-
 public class CreateRaceResultOldStyle {
 
-	public List<RaceResultEntity> createRaceResultNewStyle(String raceId) throws IOException {
+	public List<RaceResult> createRaceResultNewStyle(String raceId) throws IOException {
 
 		String url = "https://db.netkeiba.com/race/" + raceId + "/";
 
@@ -26,11 +25,11 @@ public class CreateRaceResultOldStyle {
 
 		Integer horseSize = document.select(".race_table_01 tr").size();
 
-		List<RaceResultEntity> raceResultList = new ArrayList<>();
+		List<RaceResult> raceResultList = new ArrayList<>();
 
 		for (int i = 2; i <= horseSize; i++) { // サイトの特性上、ループカウンタを2から回します
 
-			RaceResultEntity raceResult = new RaceResultEntity();
+			RaceResult raceResult = new RaceResult();
 
 			Elements ranking = document.select(".race_table_01 tr:nth-of-type(" + i + ") td:nth-of-type(1)");
 

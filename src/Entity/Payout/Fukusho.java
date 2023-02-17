@@ -1,6 +1,6 @@
-package Entity;
+package Entity.Payout;
 
-public class FukushoEntity extends Payout{
+public class Fukusho extends Payout {
 
     @Override
     public String toString() {

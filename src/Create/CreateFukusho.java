@@ -4,21 +4,22 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import Entity.Payout.Fukusho;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import Entity.FukushoEntity;
+import Entity.Payout.Fukusho;
 
 public class CreateFukusho {
     /** 複勝リストの作成 */
-    public List<FukushoEntity> createFukusho(String raceId) throws IOException {
+    public List<Fukusho> createFukusho(String raceId) throws IOException {
 
-	List<FukushoEntity> fukushoList = new ArrayList<>();
-	FukushoEntity fukusho1 = new FukushoEntity();
-	FukushoEntity fukusho2 = new FukushoEntity();
-	FukushoEntity fukusho3 = new FukushoEntity();
+	List<Fukusho> fukushoList = new ArrayList<>();
+	Fukusho fukusho1 = new Fukusho();
+	Fukusho fukusho2 = new Fukusho();
+	Fukusho fukusho3 = new Fukusho();
 
 	setRaceId(raceId, fukusho1, fukusho2, fukusho3);
 
@@ -38,7 +39,7 @@ public class CreateFukusho {
     }
 
     /** レースIDのセット */
-    public void setRaceId(String raceId, FukushoEntity fukusho1, FukushoEntity fukusho2, FukushoEntity fukusho3) {
+    public void setRaceId(String raceId, Fukusho fukusho1, Fukusho fukusho2, Fukusho fukusho3) {
 
 	fukusho1.setRaceId(raceId);
 	fukusho2.setRaceId(raceId);
@@ -46,7 +47,7 @@ public class CreateFukusho {
     }
 
     /** 人気順のセット */
-    public void setPopular(FukushoEntity fukusho1, FukushoEntity fukusho2, FukushoEntity fukusho3, Document document) {
+    public void setPopular(Fukusho fukusho1, Fukusho fukusho2, Fukusho fukusho3, Document document) {
 	Elements popularing = document.select("table.payout_Detail_Table tr.Fukusho > td.Ninki");
 	for (Element element : popularing) {
 	    String popularString = element.text();
@@ -62,7 +63,7 @@ public class CreateFukusho {
     }
 
     /** 支払い金額のセット */
-    public void setPayOut(FukushoEntity fukusho1, FukushoEntity fukusho2, FukushoEntity fukusho3, Document document) {
+    public void setPayOut(Fukusho fukusho1, Fukusho fukusho2, Fukusho fukusho3, Document document) {
 
 	Elements payOutElements = document.select("table.payout_Detail_Table tr.Fukusho > td.Payout");
 
@@ -84,8 +85,8 @@ public class CreateFukusho {
     }
 
     /** 馬番のセット */
-    public void setHorseNumber(FukushoEntity fukusho1, FukushoEntity fukusho2, FukushoEntity fukusho3,
-	    Document document) {
+    public void setHorseNumber(Fukusho fukusho1, Fukusho fukusho2, Fukusho fukusho3,
+							   Document document) {
 
 	Elements horseNumbers = document.select("table.payout_Detail_Table tr.Fukusho > td.Result");
 	for (Element element : horseNumbers) {

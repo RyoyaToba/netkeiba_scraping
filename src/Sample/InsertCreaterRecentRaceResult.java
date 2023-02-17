@@ -6,9 +6,9 @@ import java.util.List;
 import java.util.Map;
 import Create.CreateRaceResultNewStyle;
 import Create.CreateRaceResultOldStyle;
-import Entity.RaceResultEntity;
-import Parts.CreateRaceId;
-import Parts.CreateRoopCounter;
+import Entity.race.RaceResult;
+import Utility.CreateRaceId;
+import Utility.CreateRoopCounter;
 
 /**
  * 過去のレース結果を取得するメソッドです。 raceId rank waku horseNumber horseName gender age jockeyWright jockeyName
@@ -24,7 +24,7 @@ public class InsertCreaterRecentRaceResult {
     int dayNumCounter = 0; // 最大で何日目まであるのか
 
     CreateRoopCounter createRoopCounter = new CreateRoopCounter();
-    RaceResultEntity raceResult = new RaceResultEntity();
+    RaceResult raceResult = new RaceResult();
     CreateRaceResultNewStyle createRaceResultNewStyle = new CreateRaceResultNewStyle();
     CreateRaceResultOldStyle createRaceResultoldStyle = new CreateRaceResultOldStyle();
     CreateRaceId createRaceId = new CreateRaceId();
@@ -64,7 +64,7 @@ public class InsertCreaterRecentRaceResult {
             String jockeyName = "";
             String raceTime = "";
 
-            List<RaceResultEntity> raceResultList = new ArrayList<>();
+            List<RaceResult> raceResultList = new ArrayList<>();
 
             if (Integer.parseInt(year) >= 2008) {
               raceResultList = createRaceResultNewStyle.createRaceResultNewStyle(raceId);

@@ -1,6 +1,6 @@
-package Entity;
+package Entity.race;
 
-public class RaceResultEntity {
+public class RaceResult {
 
 	private String raceId;
 	private String rank;
@@ -95,7 +95,7 @@ public class RaceResultEntity {
 
 	@Override
 	public String toString() {
-		return "RaceResultEntity [raceId=" + raceId + ", rank=" + rank + ", waku=" + waku + ", horseNumber="
+		return "RaceResult [raceId=" + raceId + ", rank=" + rank + ", waku=" + waku + ", horseNumber="
 				+ horseNumber + ", horseName=" + horseName + ", gender=" + gender + ", age=" + age + ", jockeyWeight="
 				+ jockeyWeight + ", jockeyName=" + jockeyName + ", raceTime=" + raceTime + "]";
 	}

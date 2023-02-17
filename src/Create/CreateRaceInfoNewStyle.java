@@ -7,13 +7,13 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import Entity.RaceInfoEntity;
+import Entity.race.RaceInfo;
 
 public class CreateRaceInfoNewStyle {
 
-	public RaceInfoEntity createEntityNewStyle(String raceId) throws IOException {
+	public RaceInfo createEntityNewStyle(String raceId) throws IOException {
 
-		RaceInfoEntity raceInfo = new RaceInfoEntity();
+		RaceInfo raceInfo = new RaceInfo();
 
 		String url = "https://race.netkeiba.com/race/result.html?race_id=" + raceId + "&rf=race_list";
 		Document document = Jsoup.connect(url).get();

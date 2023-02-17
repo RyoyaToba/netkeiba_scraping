@@ -9,15 +9,15 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import Entity.TanshoEntity;
+import Entity.Payout.Tansho;
 
 public class CreateTansyo {
 
-    public List<TanshoEntity> createTansyo(String raceId) throws IOException {
+    public List<Tansho> createTansyo(String raceId) throws IOException {
 
-	List<TanshoEntity> tanshoList = new ArrayList<>();
-	TanshoEntity tansho1 = new TanshoEntity();
-	TanshoEntity tansho2 = new TanshoEntity();
+	List<Tansho> tanshoList = new ArrayList<>();
+	Tansho tansho1 = new Tansho();
+	Tansho tansho2 = new Tansho();
 
 	setRaceId(raceId, tansho1, tansho2);
 
@@ -39,7 +39,7 @@ public class CreateTansyo {
     }
 
     /** 人気順をセット */
-    public void setPopular(TanshoEntity tansho1, TanshoEntity tansho2, Document document) {
+    public void setPopular(Tansho tansho1, Tansho tansho2, Document document) {
 	Integer popular;
 	Elements popularing = document.select("table.payout_Detail_Table tr.Tansho > td.Ninki");
 	for (Element element : popularing) {
@@ -61,7 +61,7 @@ public class CreateTansyo {
     }
 
     /** 支払金をセット */
-    public void setPayOut(TanshoEntity tansho1, TanshoEntity tansho2, Document document) {
+    public void setPayOut(Tansho tansho1, Tansho tansho2, Document document) {
 	String payOut;
 	Elements payOuts = document.select("table.payout_Detail_Table tr.Tansho > td.Payout");
 	for (Element element : payOuts) {
@@ -94,7 +94,7 @@ public class CreateTansyo {
     }
 
     /** 馬番をセット */
-    public void setHorseNumber(TanshoEntity tansho1, TanshoEntity tansho2, Document document) {
+    public void setHorseNumber(Tansho tansho1, Tansho tansho2, Document document) {
 	Integer horseNumber;
 	Elements horseNumbers = document.select("table.payout_Detail_Table tr.Tansho > td.Result");
 	for (Element element : horseNumbers) {
@@ -114,7 +114,7 @@ public class CreateTansyo {
     }
 
     /** レースIdをセット */
-    public void setRaceId(String raceId, TanshoEntity tansho1, TanshoEntity tansho2) {
+    public void setRaceId(String raceId, Tansho tansho1, Tansho tansho2) {
 	tansho1.setRaceId(raceId);
 	tansho2.setRaceId(raceId);
     }

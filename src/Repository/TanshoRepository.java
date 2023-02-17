@@ -1,4 +1,4 @@
-package InsertCreater;
+package Repository;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -8,12 +8,12 @@ import java.util.List;
 import java.util.Map;
 
 import Create.CreateTansyo;
-import Entity.TanshoEntity;
-import Parts.CreateRaceId;
-import Parts.CreateRoopCounter;
-import Parts.DBManager;
+import Entity.Payout.Tansho;
+import Utility.CreateRaceId;
+import Utility.CreateRoopCounter;
+import Utility.DBManager;
 
-public class InsertCreaterTansho {
+public class TanshoRepository {
 
 	public static void main(String[] args) throws IOException {
 
@@ -50,8 +50,8 @@ public class InsertCreaterTansho {
 						/* レースIdを作成 */
 						String raceId = createRaceId.createRaceId(year, placeNum, countNum, dayNum, raceNum);
 
-						List<TanshoEntity> tanshoList = createTansyo.createTansyo(raceId);
-						TanshoEntity tansho = null;
+						List<Tansho> tanshoList = createTansyo.createTansyo(raceId);
+						Tansho tansho = null;
 
 						for (int i = 0; i < tanshoList.size(); i++) {
 

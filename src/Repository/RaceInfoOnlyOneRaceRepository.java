@@ -1,4 +1,4 @@
-package Only;
+package Repository;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -6,9 +6,9 @@ import java.sql.PreparedStatement;
 
 import Create.CreateRaceInfoNewStyle;
 import Create.CreateRaceInfoOldStyle;
-import Entity.RaceInfoEntity;
-import Parts.DBManager;
-import Parts.ReplacePlaceNumberPosition;
+import Entity.race.RaceInfo;
+import Utility.DBManager;
+import Utility.ReplacePlaceNumberToPosition;
 
 /**
  * 過去のレース情報を取得するメソッドです。 raceId raceDay raceNumber raceName raceDetail feild
@@ -16,7 +16,7 @@ import Parts.ReplacePlaceNumberPosition;
  * @author r-toba
  *
  */
-public class InsertCreaterRaceInfoOnlyOneRace {
+public class RaceInfoOnlyOneRaceRepository {
 	public static void main(String[] args) throws IOException {
 
 		/* raceIdを自分で設定してください */
@@ -26,10 +26,10 @@ public class InsertCreaterRaceInfoOnlyOneRace {
 		PreparedStatement pstmt = null;
 		String sql = "";
 
-		ReplacePlaceNumberPosition replace = new ReplacePlaceNumberPosition();
+		ReplacePlaceNumberToPosition replace = new ReplacePlaceNumberToPosition();
 		CreateRaceInfoNewStyle raceInfoNewStyle = new CreateRaceInfoNewStyle();
 		CreateRaceInfoOldStyle raceInfoNewOldStyle = new CreateRaceInfoOldStyle();
-		RaceInfoEntity raceInfo = new RaceInfoEntity();
+		RaceInfo raceInfo = new RaceInfo();
 
 			/* レースRのループ */
 			for (int raceNum = 1; raceNum <= 12; raceNum++) {

@@ -1,4 +1,4 @@
-package Entity;
+package Entity.Payout;
 
 public class Payout {
         protected String raceId;

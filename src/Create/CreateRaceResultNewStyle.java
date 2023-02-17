@@ -4,16 +4,15 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import Entity.race.RaceResult;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import Entity.RaceResultEntity;
-
 public class CreateRaceResultNewStyle {
 
-	public List<RaceResultEntity> createRaceResultNewStyle(String raceId) throws IOException {
+	public List<RaceResult> createRaceResultNewStyle(String raceId) throws IOException {
 
 		String url = "https://race.netkeiba.com/race/result.html?race_id=" + raceId;
 
@@ -26,11 +25,11 @@ public class CreateRaceResultNewStyle {
 
 		Integer horseSize = document.select("tr.HorseList").size();
 
-		List<RaceResultEntity> raceResultList = new ArrayList<>();
+		List<RaceResult> raceResultList = new ArrayList<>();
 
 		for (int i = 1; i <= horseSize; i++) {
 
-			RaceResultEntity raceResult = new RaceResultEntity();
+			RaceResult raceResult = new RaceResult();
 
 			Elements ranking = document.select("tr.HorseList:nth-of-type" + "(" + i + ")" + " " + "td:nth-of-type(1)");
 

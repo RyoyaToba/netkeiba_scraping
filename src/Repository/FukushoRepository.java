@@ -1,4 +1,4 @@
-package InsertCreater;
+package Repository;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -7,12 +7,12 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
 import Create.CreateFukusho;
-import Entity.FukushoEntity;
-import Parts.CreateRaceId;
-import Parts.CreateRoopCounter;
-import Parts.DBManager;
+import Entity.Payout.Fukusho;
+import Utility.CreateRaceId;
+import Utility.CreateRoopCounter;
+import Utility.DBManager;
 
-public class InsertCreaterFukusho {
+public class FukushoRepository {
 
   public static void main(String[] args) throws IOException {
 
@@ -48,8 +48,8 @@ public class InsertCreaterFukusho {
             /* レースIdを作成 */
             String raceId = createRaceId.createRaceId(year, placeNum, countNum, dayNum, raceNum);
 
-            List<FukushoEntity> fukushoList = createFukusho.createFukusho(raceId);
-            FukushoEntity fukusho = null;
+            List<Fukusho> fukushoList = createFukusho.createFukusho(raceId);
+            Fukusho fukusho = null;
 
             System.err.println(fukushoList);
 
