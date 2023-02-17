@@ -4,8 +4,8 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.util.Map;
-import Create.CreateRaceInfoNewStyle;
-import Create.CreateRaceInfoOldStyle;
+import Create.Impl.CurrentRaceInfoServiceImpl;
+import Create.Impl.OldRaceInfoServiceImpl;
 import Entity.race.RaceInfo;
 import Utility.CreateRaceId;
 import Utility.CreateRoopCounter;
@@ -31,8 +31,8 @@ public class RaceInfoRepository {
 
     CreateRoopCounter createRoopCounter = new CreateRoopCounter();
     ReplacePlaceNumberToPosition replace = new ReplacePlaceNumberToPosition();
-    CreateRaceInfoNewStyle raceInfoNewStyle = new CreateRaceInfoNewStyle();
-    CreateRaceInfoOldStyle raceInfoNewOldStyle = new CreateRaceInfoOldStyle();
+    CurrentRaceInfoServiceImpl raceInfoNewStyle = new CurrentRaceInfoServiceImpl();
+    OldRaceInfoServiceImpl raceInfoNewOldStyle = new OldRaceInfoServiceImpl();
     RaceInfo raceInfo = new RaceInfo();
     CreateRaceId createRaceId = new CreateRaceId();
 
@@ -75,9 +75,9 @@ public class RaceInfoRepository {
 
             /* INSERT文の作成 raceIdからURLに接続し必要な情報が入ったEntityが戻される */
             if (Integer.parseInt(year) >= 2008) {
-              raceInfo = raceInfoNewStyle.createEntityNewStyle(raceId);
+              raceInfo = raceInfoNewStyle.createRaceInfo(raceId);
             } else {
-              raceInfo = raceInfoNewOldStyle.createEntityOldStyle(raceId);
+              raceInfo = raceInfoNewOldStyle.createRaceInfo(raceId);
             }
 
             if (raceInfo == null) {

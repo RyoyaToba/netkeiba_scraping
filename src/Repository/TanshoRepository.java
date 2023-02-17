@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
 
-import Create.CreateTansyo;
+import Create.Impl.PayOutServiceImplForTansho;
 import Entity.Payout.Tansho;
 import Utility.CreateRaceId;
 import Utility.CreateRoopCounter;
@@ -27,7 +27,7 @@ public class TanshoRepository {
 
 		CreateRoopCounter createRoopCounter = new CreateRoopCounter();
 		CreateRaceId createRaceId = new CreateRaceId();
-		CreateTansyo createTansyo = new CreateTansyo();
+		PayOutServiceImplForTansho payOutServiceImplForTansho = new PayOutServiceImplForTansho();
 
 		for (int placeNum = 1; placeNum <= 10; placeNum++) {
 			Map<String, Integer> counterMap = createRoopCounter.createRoopCounter(placeNum);
@@ -50,7 +50,7 @@ public class TanshoRepository {
 						/* レースIdを作成 */
 						String raceId = createRaceId.createRaceId(year, placeNum, countNum, dayNum, raceNum);
 
-						List<Tansho> tanshoList = createTansyo.createTansyo(raceId);
+						List<Tansho> tanshoList = payOutServiceImplForTansho.createPayoutResult(raceId);
 						Tansho tansho = null;
 
 						for (int i = 0; i < tanshoList.size(); i++) {

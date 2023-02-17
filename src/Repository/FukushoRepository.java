@@ -6,7 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
-import Create.CreateFukusho;
+import Create.Impl.PayoutServiceImplForFukusho;
 import Entity.Payout.Fukusho;
 import Utility.CreateRaceId;
 import Utility.CreateRoopCounter;
@@ -25,7 +25,7 @@ public class FukushoRepository {
 
     CreateRoopCounter createRoopCounter = new CreateRoopCounter();
     CreateRaceId createRaceId = new CreateRaceId();
-    CreateFukusho createFukusho = new CreateFukusho();
+    PayoutServiceImplForFukusho createFukusho = new PayoutServiceImplForFukusho();
 
     for (int placeNum = 1; placeNum <= 10; placeNum++) {
       Map<String, Integer> counterMap = createRoopCounter.createRoopCounter(placeNum);
@@ -48,7 +48,7 @@ public class FukushoRepository {
             /* レースIdを作成 */
             String raceId = createRaceId.createRaceId(year, placeNum, countNum, dayNum, raceNum);
 
-            List<Fukusho> fukushoList = createFukusho.createFukusho(raceId);
+            List<Fukusho> fukushoList = createFukusho.createPayoutResult(raceId);
             Fukusho fukusho = null;
 
             System.err.println(fukushoList);

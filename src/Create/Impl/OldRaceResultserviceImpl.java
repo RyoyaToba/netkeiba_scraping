@@ -1,9 +1,10 @@
-package Create;
+package Create.Impl;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import Create.RaceResultService;
 import Entity.race.RaceResult;
 import Utility.Common;
 import Utility.NetkeibaURL;
@@ -12,9 +13,10 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-public class CreateRaceResultOldStyle {
+public class OldRaceResultserviceImpl implements RaceResultService {
 
-	public List<RaceResult> createRaceResultNewStyle(String raceId) throws IOException {
+	@Override
+	public List<RaceResult> createRaceResult(String raceId) throws IOException {
 
 		String url = NetkeibaURL.OLD_RACE_RESULT_PAGE_URL + raceId + Common.SLASH;
 

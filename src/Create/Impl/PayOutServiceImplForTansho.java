@@ -1,9 +1,10 @@
-package Create;
+package Create.Impl;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import Create.PayoutService;
 import Utility.NetkeibaURL;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -12,9 +13,10 @@ import org.jsoup.select.Elements;
 
 import Entity.Payout.Tansho;
 
-public class CreateTansyo {
+public class PayOutServiceImplForTansho implements PayoutService {
 
-    public List<Tansho> createTansyo(String raceId) throws IOException {
+	@Override
+    public List<Tansho> createPayoutResult(String raceId) throws IOException {
 
 	List<Tansho> tanshoList = new ArrayList<>();
 	Tansho tansho1 = new Tansho();

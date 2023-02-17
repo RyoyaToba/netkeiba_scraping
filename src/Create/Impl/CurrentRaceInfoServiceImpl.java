@@ -1,7 +1,8 @@
-package Create;
+package Create.Impl;
 
 import java.io.IOException;
 
+import Create.RaceInfoService;
 import Utility.NetkeibaURL;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -10,9 +11,9 @@ import org.jsoup.select.Elements;
 
 import Entity.race.RaceInfo;
 
-public class CreateRaceInfoNewStyle {
-
-	public RaceInfo createEntityNewStyle(String raceId) throws IOException {
+public class CurrentRaceInfoServiceImpl implements RaceInfoService {
+	@Override
+	public RaceInfo createRaceInfo(String raceId) throws IOException {
 
 		RaceInfo raceInfo = new RaceInfo();
 

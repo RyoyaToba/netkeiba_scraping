@@ -7,8 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import Create.CreateRaceResultNewStyle;
-import Create.CreateRaceResultOldStyle;
+import Create.Impl.CurrentRaceResultServiceImpl;
+import Create.Impl.OldRaceResultserviceImpl;
 import Entity.race.RaceResult;
 import Utility.CreateRaceId;
 import Utility.CreateRoopCounter;
@@ -31,8 +31,8 @@ public class RaceResultRepository {
 
 		CreateRoopCounter createRoopCounter = new CreateRoopCounter();
 		RaceResult raceResult = new RaceResult();
-		CreateRaceResultNewStyle createRaceResultNewStyle = new CreateRaceResultNewStyle();
-		CreateRaceResultOldStyle createRaceResultoldStyle = new CreateRaceResultOldStyle();
+		CurrentRaceResultServiceImpl createRaceResultNewStyle = new CurrentRaceResultServiceImpl();
+		OldRaceResultserviceImpl createRaceResultoldRaceResultserviceImpl = new OldRaceResultserviceImpl();
 		CreateRaceId createRaceId = new CreateRaceId();
 
 		/* 場所のループ */// 札幌01 函館02 福島03 新潟04 東京05 中山06 中京07 京都08 阪神09 小倉10
@@ -73,9 +73,9 @@ public class RaceResultRepository {
 						List<RaceResult> raceResultList = new ArrayList<>();
 
 						if (Integer.parseInt(year) >= 2008) {
-							raceResultList = createRaceResultNewStyle.createRaceResultNewStyle(raceId);
+							raceResultList = createRaceResultNewStyle.createRaceResult(raceId);
 						} else {
-							raceResultList = createRaceResultoldStyle.createRaceResultNewStyle(raceId);
+							raceResultList = createRaceResultoldRaceResultserviceImpl.createRaceResult(raceId);
 						}
 
 						Connection con = DBManager.createConnection();

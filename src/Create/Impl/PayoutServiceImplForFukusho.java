@@ -1,9 +1,10 @@
-package Create;
+package Create.Impl;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import Create.PayoutService;
 import Entity.Payout.Fukusho;
 import Utility.NetkeibaURL;
 import org.jsoup.Jsoup;
@@ -11,11 +12,10 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import Entity.Payout.Fukusho;
-
-public class CreateFukusho {
+public class PayoutServiceImplForFukusho implements PayoutService {
     /** 複勝リストの作成 */
-    public List<Fukusho> createFukusho(String raceId) throws IOException {
+	@Override
+    public List<Fukusho> createPayoutResult(String raceId) throws IOException {
 
 	List<Fukusho> fukushoList = new ArrayList<>();
 	Fukusho fukusho1 = new Fukusho();
