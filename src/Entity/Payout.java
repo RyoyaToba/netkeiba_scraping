@@ -1,10 +1,10 @@
 package Entity;
 
 public class Payout {
-        private String raceId;
-        private Integer horseNumber;
-        private Integer payOut;
-        private Integer popular;
+        protected String raceId;
+        protected Integer horseNumber;
+        protected Integer payOut;
+        protected Integer popular;
 
         public String getRaceId() {
             return raceId;
