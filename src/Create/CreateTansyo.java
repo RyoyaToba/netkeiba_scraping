@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import Utility.NetkeibaURL;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -21,7 +22,7 @@ public class CreateTansyo {
 
 	setRaceId(raceId, tansho1, tansho2);
 
-	String url = "https://race.netkeiba.com/race/result.html?race_id=" + raceId;
+	String url = NetkeibaURL.PAYOUT_PAGE_URL + raceId;
 
 	Document document = Jsoup.connect(url).get();
 

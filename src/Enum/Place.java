@@ -1,4 +1,4 @@
-package Entity.place;
+package Enum;
 
 public enum Place {
     SAPPORO("01", "札幌"),

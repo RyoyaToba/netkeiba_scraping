@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import Entity.Payout.Fukusho;
+import Utility.NetkeibaURL;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -23,7 +24,7 @@ public class CreateFukusho {
 
 	setRaceId(raceId, fukusho1, fukusho2, fukusho3);
 
-	String url = "https://race.netkeiba.com/race/result.html?race_id=" + raceId;
+	String url = NetkeibaURL.PAYOUT_PAGE_URL + raceId;
 
 	Document document = Jsoup.connect(url).get();
 

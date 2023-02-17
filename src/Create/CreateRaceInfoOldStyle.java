@@ -2,6 +2,8 @@ package Create;
 
 import java.io.IOException;
 
+import Utility.Common;
+import Utility.NetkeibaURL;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -15,7 +17,7 @@ public class CreateRaceInfoOldStyle {
 
 		RaceInfo raceInfo = new RaceInfo();
 
-		String url = "https://db.netkeiba.com/race/" + raceId + "/";
+		String url = NetkeibaURL.OLD_RACE_RESULT_PAGE_URL + raceId + Common.SLASH;
 
 		Document document = Jsoup.connect(url).get();
 

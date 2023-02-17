@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import Entity.race.RaceResult;
+import Utility.NetkeibaURL;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -14,7 +15,7 @@ public class CreateRaceResultNewStyle {
 
 	public List<RaceResult> createRaceResultNewStyle(String raceId) throws IOException {
 
-		String url = "https://race.netkeiba.com/race/result.html?race_id=" + raceId;
+		String url = NetkeibaURL.CURRENT_RACE_RESULT_PAGE_BEFORE_URL + raceId;
 
 		Document document = Jsoup.connect(url).get();
 

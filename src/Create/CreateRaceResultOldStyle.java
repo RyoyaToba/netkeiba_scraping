@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import Entity.race.RaceResult;
+import Utility.Common;
+import Utility.NetkeibaURL;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -14,7 +16,7 @@ public class CreateRaceResultOldStyle {
 
 	public List<RaceResult> createRaceResultNewStyle(String raceId) throws IOException {
 
-		String url = "https://db.netkeiba.com/race/" + raceId + "/";
+		String url = NetkeibaURL.OLD_RACE_RESULT_PAGE_URL + raceId + Common.SLASH;
 
 		Document document = Jsoup.connect(url).get();
 

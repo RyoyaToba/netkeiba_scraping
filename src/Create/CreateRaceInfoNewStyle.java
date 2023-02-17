@@ -2,6 +2,7 @@ package Create;
 
 import java.io.IOException;
 
+import Utility.NetkeibaURL;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -15,7 +16,9 @@ public class CreateRaceInfoNewStyle {
 
 		RaceInfo raceInfo = new RaceInfo();
 
-		String url = "https://race.netkeiba.com/race/result.html?race_id=" + raceId + "&rf=race_list";
+		String url = NetkeibaURL.CURRENT_RACE_RESULT_PAGE_BEFORE_URL + raceId
+				   + NetkeibaURL.CURRENT_RACE_RESULT_PAGE_AFTER_URL;
+
 		Document document = Jsoup.connect(url).get();
 		Elements pageTitle = document.select("title");
 
