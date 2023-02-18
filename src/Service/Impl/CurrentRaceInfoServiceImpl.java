@@ -1,8 +1,8 @@
-package Create.Impl;
+package Service.Impl;
 
 import java.io.IOException;
 
-import Create.RaceInfoService;
+import Service.RaceInfoService;
 import Utility.NetkeibaURL;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;

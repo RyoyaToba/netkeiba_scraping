@@ -6,11 +6,11 @@ import java.sql.SQLException;
 
 public class DBManager {
 
-	private final static String DB_URL = "jdbc:postgresql://localhost:5432/horse";//DBURL
-	private final static String USER_NAME = "postgres";//UserName
-	private final static String PASSWORD = "postgres";//password
+	private final static String DB_URL = "jdbc:postgresql://localhost:5432/horse";
+	private final static String USER_NAME = "postgres";
+	private final static String PASSWORD = "postgres";
 
-	/* DBに接続するメソッド */
+	/** DBに接続 */
 	public static Connection createConnection() {
 		try {
 			Connection connection = DriverManager.getConnection(DB_URL, USER_NAME, PASSWORD);
@@ -21,7 +21,7 @@ public class DBManager {
 		}
 	}
 
-	/* DBから切断するメソッド */
+	/** DBから切断 */
 	public static void closeConnection(Connection connection) {
 		try {
 			if (connection != null) {

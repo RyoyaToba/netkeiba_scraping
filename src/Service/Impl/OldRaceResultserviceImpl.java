@@ -1,10 +1,10 @@
-package Create.Impl;
+package Service.Impl;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import Create.RaceResultService;
+import Service.RaceResultService;
 import Entity.race.RaceResult;
 import Utility.Common;
 import Utility.NetkeibaURL;

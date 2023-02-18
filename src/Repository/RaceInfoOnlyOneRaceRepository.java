@@ -4,8 +4,8 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 
-import Create.Impl.CurrentRaceInfoServiceImpl;
-import Create.Impl.OldRaceInfoServiceImpl;
+import Service.Impl.CurrentRaceInfoServiceImpl;
+import Service.Impl.OldRaceInfoServiceImpl;
 import Entity.race.RaceInfo;
 import Utility.DBManager;
 import Utility.ReplacePlaceNumberToPosition;

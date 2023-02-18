@@ -1,9 +1,38 @@
 package Utility;
 
+import Enum.PlaceDetails.Sapporo;
+import Enum.PlaceList;
+
 import java.util.HashMap;
 import java.util.Map;
 
 public class CreateRoopCounter {
+
+	public Map<String, Integer> createRoopCounter2(Integer year, Integer placeNum){
+
+		Integer countNumCounter = 0;
+		Integer dayNumCounter = 0;
+
+		String targetYear = "Y" + year;
+
+		switch(placeNum){
+			case 1:
+				countNumCounter = Integer.parseInt(Sapporo.getData(targetYear).get("countNum"));
+				dayNumCounter = Integer.parseInt(Sapporo.getData(targetYear).get("dayNum"));
+				break;
+			case 2:
+
+		}
+
+
+		Map<String, Integer> counterMap = new HashMap<>();
+
+
+
+		return null;
+	}
+
+
 
 	public Map<String, Integer> createRoopCounter(Integer placeNum) {
 

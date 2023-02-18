@@ -1,6 +1,6 @@
 package Utility;
 
-import Enum.Place;
+import Enum.PlaceList;
 
 public class ReplacePlaceNumberToPosition {
 
@@ -12,36 +12,35 @@ public class ReplacePlaceNumberToPosition {
 
 		switch(placeNum){
 			case 1:
-				position = Place.SAPPORO.getName();
+				position = PlaceList.SAPPORO.getName();
 				break;
 			case 2:
-				position = Place.HAKODATE.getName();
+				position = PlaceList.HAKODATE.getName();
 				break;
 			case 3:
-				position = Place.FUKUSHIMA.getName();
+				position = PlaceList.FUKUSHIMA.getName();
 				break;
 			case 4:
-				position = Place.NIGATA.getName();
+				position = PlaceList.NIGATA.getName();
 				break;
 			case 5:
-				position = Place.TOKYO.getName();
+				position = PlaceList.TOKYO.getName();
 				break;
 			case 6:
-				position = Place.NAKAYAMA.getName();
+				position = PlaceList.NAKAYAMA.getName();
 				break;
 			case 7:
-				position = Place.CHUKYO.getName();
+				position = PlaceList.CHUKYO.getName();
 				break;
 			case 8:
-				position = Place.KYOTO.getName();
+				position = PlaceList.KYOTO.getName();
 				break;
 			case 9:
-				position = Place.HANSHIN.getName();
+				position = PlaceList.HANSHIN.getName();
 				break;
 			case 10:
-				position = Place.KOKURA.getName();
+				position = PlaceList.KOKURA.getName();
 		}
 		return position;
 	}
-
 }
