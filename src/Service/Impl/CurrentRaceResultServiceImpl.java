@@ -7,6 +7,7 @@ import java.util.List;
 import Service.RaceResultService;
 import Entity.race.RaceResult;
 import Utility.NetkeibaURL;
+import Utility.RaceTerm;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -20,9 +21,6 @@ public class CurrentRaceResultServiceImpl implements RaceResultService {
 
 		Document document = Jsoup.connect(url).get();
 
-		String rank = "";
-		String gender = "";
-		Integer age = 0;
 		Double jockeyWeight = 0.1;
 
 		Integer horseSize = document.select("tr.HorseList").size();
@@ -33,60 +31,71 @@ public class CurrentRaceResultServiceImpl implements RaceResultService {
 
 			RaceResult raceResult = new RaceResult();
 
-			Elements ranking = document.select("tr.HorseList:nth-of-type" + "(" + i + ")" + " " + "td:nth-of-type(1)");
+			raceResult.setRaceId(raceId);
 
-			for (Element element : ranking) {
+			/** 順位*/
+			Elements elemRanks = document.select("tr.HorseList:nth-of-type" + "(" + i + ")" + " " + "td:nth-of-type(1)");
+
+			String rank = "";
+			for (Element element : elemRanks) {
 				rank = element.text();
 			}
 
-			if (rank.equals("除外")) {
-				rank = "-1";
-			} else if (rank.equals("中止")) {
-				rank = "99";
-			} else if (rank.equals("取消")) {
-				rank = "0";
-			} else if (rank.equals("失格")) {
-				rank = "100";
+			switch (rank) {
+				case "除外":
+					rank = RaceTerm.JOGAI;
+					break;
+				case "中止":
+					rank = RaceTerm.CHUSHI;
+					break;
+				case "取消":
+					rank = RaceTerm.TORIKESHI;
+					break;
+				case "失格":
+					rank = RaceTerm.SHIKKAKU;
 			}
-
-			raceResult.setRaceId(raceId);
 
 			raceResult.setRank(rank);
 
-			Elements wakuing = document.select("tr.HorseList:nth-of-type" + "(" + i + ")" + " " + "td:nth-of-type(2)");
-			for (Element element : wakuing) {
+			/** 枠番の取得 */
+			Elements elemWakus = document.select("tr.HorseList:nth-of-type" + "(" + i + ")" + " " + "td:nth-of-type(2)");
+			for (Element element : elemWakus) {
 				raceResult.setWaku(Integer.parseInt(element.text()));
 			}
 
-			Elements horseNumbering = document
+			/** 馬番 */
+			Elements elemHorseNums = document
 					.select("tr.HorseList:nth-of-type" + "(" + i + ")" + " " + "td:nth-of-type(3)");
-			for (Element element : horseNumbering) {
+			for (Element element : elemHorseNums) {
 				raceResult.setHorseNumber(Integer.parseInt(element.text()));
 			}
 
-			Elements horseNameing = document
+			/** 馬名 */
+			Elements elemhorseNames = document
 					.select("tr.HorseList:nth-of-type" + "(" + i + ")" + " " + "td:nth-of-type(4)");
-			for (Element element : horseNameing) {
+			for (Element element : elemhorseNames) {
 				raceResult.setHorseName(element.text());
 			}
 
-			Elements gendering = document
+			/** 性別 */
+			Elements elemGenderAndAges = document
 					.select("tr.HorseList:nth-of-type" + "(" + i + ")" + " " + "td:nth-of-type(5)");
-			for (Element element : gendering) {
-				gender = (element.text()).substring(0, 1);
+			for (Element element : elemGenderAndAges) {
+				String gender = (element.text()).substring(0, 1);
 				raceResult.setGender(gender);
 			}
 
-			Elements ageing = document.select("tr.HorseList:nth-of-type" + "(" + i + ")" + " " + "td:nth-of-type(5)");
-			for (Element element : ageing) {
+			/** 馬年齢 */
+			for (Element element : elemGenderAndAges) {
 				String ageString = (element.text()).substring(1, 2);
-				age = Integer.parseInt(ageString);
+				Integer age = Integer.parseInt(ageString);
 				raceResult.setAge(age);
 			}
 
-			Elements jockWeighting = document
+			/** 斤量 */
+			Elements elemJockeyWeights = document
 					.select("tr.HorseList:nth-of-type" + "(" + i + ")" + " " + "td:nth-of-type(6)");
-			for (Element element : jockWeighting) {
+			for (Element element : elemJockeyWeights) {
 				if (element.text().equals("未定")) {
 					jockeyWeight = 0.0;
 				} else {
@@ -95,18 +104,19 @@ public class CurrentRaceResultServiceImpl implements RaceResultService {
 				raceResult.setJockeyWeight(jockeyWeight);
 			}
 
-			Elements jockeyNameing = document
+			/** 騎手名 */
+			Elements elemJockeyNames = document
 					.select("tr.HorseList:nth-of-type" + "(" + i + ")" + " " + "td:nth-of-type(7)");
-			for (Element element : jockeyNameing) {
+			for (Element element : elemJockeyNames) {
 				raceResult.setJockeyName(element.text());
 			}
 
-			Elements raceTimeing = document
+			/** レースタイム */
+			Elements elemRaceTimes = document
 					.select("tr.HorseList:nth-of-type" + "(" + i + ")" + " " + "td:nth-of-type(8)");
-			for (Element element : raceTimeing) {
+			for (Element element : elemRaceTimes) {
 				raceResult.setRaceTime(element.text());
 			}
-
 			raceResultList.add(raceResult);
 		}
 		return raceResultList;

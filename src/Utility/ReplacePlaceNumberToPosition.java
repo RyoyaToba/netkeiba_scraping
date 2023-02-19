@@ -6,8 +6,6 @@ public class ReplacePlaceNumberToPosition {
 
 	public String replacePlaceNumberPosition(Integer placeNum) {
 
-		String placeNumString = "";
-
 		String position = "";
 
 		switch(placeNum){
