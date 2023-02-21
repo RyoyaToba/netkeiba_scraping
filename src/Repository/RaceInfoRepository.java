@@ -21,9 +21,9 @@ import Utility.ReplacePlaceNumberToPosition;
 public class RaceInfoRepository {
   public static void main(String[] args) throws IOException {
 
-    String year = "2000";
+    String year = "2022";
 
-    PreparedStatement pstmt = null;
+    //PreparedStatement pstmt = null;
     String sql = "";
 
     int countNumCounter = 0; // 最大で第何回までレースがあるのか
@@ -89,7 +89,7 @@ public class RaceInfoRepository {
             raceDetail = raceInfo.getRaceDetail();
             feild = raceInfo.getFeild();
 
-            Connection con = DBManager.createConnection();
+            //Connection con = DBManager.createConnection();
 
             //try {
 //              sql =
