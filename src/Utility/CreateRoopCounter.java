@@ -8,7 +8,7 @@ import java.util.Map;
 
 public class CreateRoopCounter {
 
-	public Map<String, Integer> createRoopCounter2(Integer year, Integer placeNum){
+	public Map<String, Integer> createRoopCounter2(String year, Integer placeNum){
 
 		Integer countNumCounter = 0;
 		Integer dayNumCounter = 0;

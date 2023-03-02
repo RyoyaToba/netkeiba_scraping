@@ -40,7 +40,7 @@ public class RaceInfoRepository {
     for (int placeNum = 5; placeNum <= 5; placeNum++) {
 
       /* カウンタの指定。年によって自分でCreateRoopCounter内の数値を変更 */
-      Map<String, Integer> counterMap = createRoopCounter.createRoopCounter(placeNum);
+      Map<String, Integer> counterMap = createRoopCounter.createRoopCounter2(year,placeNum);
       countNumCounter = counterMap.get("countNumCounter");
       dayNumCounter = counterMap.get("dayNumCounter");
 
@@ -107,7 +107,7 @@ public class RaceInfoRepository {
 //            }
 
             System.out.println(
-                "INSERT INTO race_info (race_id, race_day, race_number, race_name, race_detail, feild) VALUES('"
+                "INSERT INTO race_info (race_id, race_day, race_number, race_name, race_detail, field) VALUES('"
                     + raceId + "'," + "'" + raceDay + "'," + "'" + raceNumber + "'," + "'"
                     + raceName + "'," + "'" + raceDetail + "'," + "'" + feild + "');");
           }
