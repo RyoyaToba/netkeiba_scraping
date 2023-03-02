@@ -70,11 +70,13 @@ public class CurrentRaceResultServiceImpl implements RaceResultService {
 				raceResult.setHorseNumber(Integer.parseInt(element.text()));
 			}
 
-			/** 馬名 */
+			/** 馬名・馬ID */
 			Elements elemhorseNames = document
 					.select("tr.HorseList:nth-of-type" + "(" + i + ")" + " " + "td:nth-of-type(4)");
 			for (Element element : elemhorseNames) {
 				raceResult.setHorseName(element.text());
+				raceResult.setHorseId(element.outerHtml()); //TODO
+				System.out.println(element.outerHtml());
 			}
 
 			/** 性別 */

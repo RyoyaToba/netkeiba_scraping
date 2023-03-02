@@ -7,6 +7,7 @@ public class RaceResult {
 	private Integer waku;
 	private Integer horseNumber;
 	private String horseName;
+	private String horseId;
 	private String gender;
 	private Integer age;
 	private Double jockeyWeight;
@@ -91,6 +92,10 @@ public class RaceResult {
 
 	public void setRaceTime(String raceTime) {
 		this.raceTime = raceTime;
+	}
+
+	public void setHorseId(String horseId){
+		this.horseId = horseId;
 	}
 
 	@Override

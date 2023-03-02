@@ -2,13 +2,13 @@ package Entity.horse;
 
 public class Horse {
 
-    private Integer id;
+    private String id;
     private String name;
-    private Integer gender;
-    private Integer motherId;
-    private Integer fatherId;
+    private String gender;
+    private String motherId;
+    private String fatherId;
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
@@ -16,19 +16,19 @@ public class Horse {
         return name;
     }
 
-    public Integer getGender() {
+    public String getGender() {
         return gender;
     }
 
-    public Integer getMotherId() {
+    public String getMotherId() {
         return motherId;
     }
 
-    public Integer getFatherId() {
+    public String getFatherId() {
         return fatherId;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -36,15 +36,15 @@ public class Horse {
         this.name = name;
     }
 
-    public void setGender(Integer gender) {
+    public void setGender(String gender) {
         this.gender = gender;
     }
 
-    public void setMotherId(Integer motherId) {
+    public void setMotherId(String motherId) {
         this.motherId = motherId;
     }
 
-    public void setFatherId(Integer fatherId) {
+    public void setFatherId(String fatherId) {
         this.fatherId = fatherId;
     }
 

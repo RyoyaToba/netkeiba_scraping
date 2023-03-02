@@ -21,7 +21,7 @@ import Utility.DBManager;
 public class RaceResultRepository {
 	public static void main(String[] args) throws IOException {
 
-		String year = "2005";
+		String year = "2022";
 
 		PreparedStatement pstmt = null;
 		String sql = "";
