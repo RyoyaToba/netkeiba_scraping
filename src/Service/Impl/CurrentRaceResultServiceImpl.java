@@ -128,7 +128,22 @@ public class CurrentRaceResultServiceImpl implements RaceResultService {
 		Integer horseIdStart = element.outerHtml().indexOf("horse/") + 6;
 		Integer horseIdEnd = horseIdStart + 10;
 		String horseId = element.outerHtml().substring(horseIdStart, horseIdEnd);
-		System.out.println("target = " + horseId);
 		return horseId;
 	}
+
+	// TODO CREATE JockeyId Logic
+	public String returnJockeyId(Element element){
+
+		Integer JockeyIdStart = element.outerHtml().indexOf("recent/");
+		Integer JockeyIdEnd = JockeyIdStart + 5;
+		return null;
+	}
+
+	// TODO CREATE
+	public String returnKyushaId(){
+		return null;
+	}
+
+
+
 }
