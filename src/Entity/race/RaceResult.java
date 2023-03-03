@@ -98,6 +98,10 @@ public class RaceResult {
 		this.horseId = horseId;
 	}
 
+	public String getHorseId(){
+		return this.horseId;
+	}
+
 	@Override
 	public String toString() {
 		return "RaceResult [raceId=" + raceId + ", rank=" + rank + ", waku=" + waku + ", horseNumber="

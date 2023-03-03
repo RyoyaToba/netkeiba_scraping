@@ -64,6 +64,7 @@ public class RaceResultRepository {
 						Integer waku = 0;
 						Integer horseNumber = 0;
 						String horseName = "";
+						String horseId = "";
 						String gender = "";
 						Integer age = 0;
 						Double jockeyWeight = 0.1;
@@ -78,7 +79,7 @@ public class RaceResultRepository {
 							raceResultList = createRaceResultoldRaceResultserviceImpl.createRaceResult(raceId);
 						}
 
-						Connection con = DBManager.createConnection();
+						//Connection con = DBManager.createConnection();
 
 						for (int i = 0; i < raceResultList.size(); i++) {
 							raceResult = raceResultList.get(i);
@@ -87,14 +88,15 @@ public class RaceResultRepository {
 							waku = raceResult.getWaku();
 							horseNumber = raceResult.getHorseNumber();
 							horseName = raceResult.getHorseName();
+							horseId = raceResult.getHorseId();
 							gender = raceResult.getGender();
 							age = raceResult.getAge();
 							jockeyWeight = raceResult.getJockeyWeight();
 							jockeyName = raceResult.getJockeyName();
 							raceTime = raceResult.getRaceTime();
 
-							try {
-								sql = "INSERT INTO race_result (race_id, rank, waku, horse_number, horse_name, gender, age, jockey_weight, jockey_name, race_time) VALUES ('"
+							//try {
+								/*sql = "INSERT INTO race_result (race_id, rank, waku, horse_number, horse_name, gender, age, jockey_weight, jockey_name, race_time) VALUES ('"
 										+ raceId + "'," + newRank + "," + waku + "," + horseNumber + "," + "'"
 										+ horseName + "'," + "'" + gender + "'," + age + "," + jockeyWeight + "," + "'"
 										+ jockeyName + "'," + "'" + raceTime + "');";
@@ -104,15 +106,18 @@ public class RaceResultRepository {
 
 							} catch (Exception e) {
 								e.printStackTrace();
-							}
+							}*/
 							System.out.println(
 									"INSERT INTO race_result (race_id, rank, waku, horse_number, horse_name, gender, age, jockey_weight, jockey_name, race_time) VALUES ('"
-											+ raceId + "'," + newRank + "," + waku + "," + horseNumber + "," + "'"
+											+ raceId + "'," + newRank + "," + waku + "," + horseNumber + "," + "'" + horseId + "'" + "," + "'"
 											+ horseName + "'," + "'" + gender + "'," + age + "," + jockeyWeight + ","
 											+ "'" + jockeyName + "'," + "'" + raceTime + "');");
 						}
-						DBManager.closeConnection(con);
+						//DBManager.closeConnection(con);
+
 					}
+
+
 				}
 			}
 		}

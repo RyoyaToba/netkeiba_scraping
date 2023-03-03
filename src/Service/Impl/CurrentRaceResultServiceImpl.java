@@ -75,8 +75,7 @@ public class CurrentRaceResultServiceImpl implements RaceResultService {
 					.select("tr.HorseList:nth-of-type" + "(" + i + ")" + " " + "td:nth-of-type(4)");
 			for (Element element : elemhorseNames) {
 				raceResult.setHorseName(element.text());
-				raceResult.setHorseId(element.outerHtml()); //TODO
-				System.out.println(element.outerHtml());
+				raceResult.setHorseId(returnHorseId(element));
 			}
 
 			/** 性別 */
@@ -122,5 +121,14 @@ public class CurrentRaceResultServiceImpl implements RaceResultService {
 			raceResultList.add(raceResult);
 		}
 		return raceResultList;
+	}
+
+	public String returnHorseId(Element element){
+
+		Integer horseIdStart = element.outerHtml().indexOf("horse/") + 6;
+		Integer horseIdEnd = horseIdStart + 10;
+		String horseId = element.outerHtml().substring(horseIdStart, horseIdEnd);
+		System.out.println("target = " + horseId);
+		return horseId;
 	}
 }
