@@ -40,7 +40,7 @@ public class HorseServiceImpl implements HorseService {
             for (String horseId : horseIdList){
                 String URL = NetkeibaURL.HORSE_DATA_URL + horseId;
                 Document document = Jsoup.connect(URL).get();
-                // TODO Horseにつめるロジックを実装
+                // TODO Horseにつめるロジックを実装予定
 
                 /** Get HorseData Sample
                  * <div class="db_prof_area_02">
