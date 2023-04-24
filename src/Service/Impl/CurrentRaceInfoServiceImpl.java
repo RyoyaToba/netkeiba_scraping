@@ -1,6 +1,8 @@
 package Service.Impl;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 import Service.RaceInfoService;
 import Utility.NetkeibaURL;
@@ -11,6 +13,9 @@ import org.jsoup.select.Elements;
 
 import Entity.race.RaceInfo;
 
+/**
+ *  レース情報を作成するクラス
+ * */
 public class CurrentRaceInfoServiceImpl implements RaceInfoService {
 	@Override
 	public RaceInfo createRaceInfo(String raceId) throws IOException {
@@ -27,6 +32,8 @@ public class CurrentRaceInfoServiceImpl implements RaceInfoService {
 			return null;
 		}
 
+		raceInfo.setRaceId(raceId);
+
 		// レースの名前の取得（例：三歳未勝利戦）
 		Elements raceNaming = document.select("div.raceName");
 		for (Element element : raceNaming) {
@@ -38,27 +45,83 @@ public class CurrentRaceInfoServiceImpl implements RaceInfoService {
 		}
 
 		// 日付取得（例：４月４日（））
+		// TODO convert String -> Date or DataTime
 		Elements dd = document.select("dd.Active");
 		for (Element element : dd) {
 			raceInfo.setRaceDay(element.text());
 		}
 
-		// 芝１８００
+		// 芝 or ダート + 距離
 		Elements raceData01 = document.select(".RaceData01 > span:nth-of-type(1)");
 		for (Element element : raceData01) {
-			raceInfo.setRaceDetail(element.text());
+
+			Map<String, String> raceTypeAndDistanceMap = createRaceTypeAndDistance(element.text());
+			raceInfo.setRaceType(raceTypeAndDistanceMap.get("raceType"));
+			raceInfo.setDistance(raceTypeAndDistanceMap.get("distance"));
 		}
 
 		// 馬場状態
 		Elements raceData02 = document.select(".RaceData01 > span:nth-of-type(3)");
 		for (Element element : raceData02) {
 			if (element == null) {
-				raceInfo.setFeild(" ");
+				raceInfo.setField(" ");
 			} else {
-				String feild = (element.text()).substring(2, (element.text().length()));
-				raceInfo.setFeild(feild);
+				String field = (element.text()).substring(2, (element.text().length()));
+				field = convertFieldStringToNumber(field);
+				raceInfo.setField(field);
 			}
 		}
 		return raceInfo;
+	}
+
+	private Map<String, String> createRaceTypeAndDistance(String raceData) {
+
+		Map<String, String> map = new HashMap<>();
+		// TODO think of a better logic
+		String raceType = raceData.substring(0,1);
+		String distance = raceData.substring(1,raceData.indexOf("m"));
+
+		map.put("raceType", convertRaceTypeStringToNumber(raceType));
+		map.put("distance", distance);
+		return map;
+	}
+
+	private String convertRaceTypeStringToNumber(String raceType){
+
+		// TODO fix hard cording
+		switch (raceType){
+
+			case "芝":
+				raceType = "1";
+				break;
+			case "ダ":
+				raceType = "2";
+				break;
+			case "障":
+				raceType = "3";
+				break;
+			default:
+				raceType = null;
+		}
+		return raceType;
+	}
+
+
+	private String convertFieldStringToNumber(String field){
+
+		field = field.substring(field.indexOf(":") + 1, field.length());
+
+		System.out.println(field);
+
+		switch (field){
+
+			case "良":
+				field = "1";
+				break;
+			default:
+				field = null;
+
+		}
+		return field;
 	}
 }

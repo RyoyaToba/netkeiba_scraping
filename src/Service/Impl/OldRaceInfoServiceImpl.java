@@ -46,7 +46,7 @@ public class OldRaceInfoServiceImpl implements RaceInfoService {
 		for (Element element : raceData01) {
 			String raceDetail = element.text().substring(0, 1)
 					+ element.text().substring(2, element.text().indexOf("m") + 1);
-			raceInfo.setRaceDetail(raceDetail.replace(" ", ""));
+			//raceInfo.setRaceDetail(raceDetail.replace(" ", ""));
 		}
 
 		String feild = "";
@@ -63,7 +63,7 @@ public class OldRaceInfoServiceImpl implements RaceInfoService {
 			if (feild.equals("馬場: ")) {
 				feild = "馬場:良";
 			}
-			raceInfo.setFeild(feild);
+			//raceInfo.setFeild(feild);
 
 		}
 

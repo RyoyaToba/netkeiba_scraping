@@ -6,7 +6,8 @@ public class RaceInfo {
 	private String raceDay;
 	private String raceNumber;
 	private String raceName;
-	private String raceDetail;
+	private String raceType;
+	private String distance;
 	private String field;
 
 	public String getRaceId() {
@@ -41,20 +42,26 @@ public class RaceInfo {
 		this.raceName = raceName;
 	}
 
-	public String getRaceDetail() {
-		return raceDetail;
+	public String getDistance() {
+		return distance;
 	}
 
-	public void setRaceDetail(String raceDetail) {
-		this.raceDetail = raceDetail;
+	public void setDistance(String distance) {
+		this.distance = distance;
 	}
 
-	public String getFeild() {
+	public String getRaceType() {
+		return raceType;
+	}
+
+	public void setRaceType(String raceType) {this.raceType = raceType;}
+
+	public String getField() {
 		return field;
 	}
 
-	public void setFeild(String feild) {
-		this.field = feild;
+	public void setField(String field) {
+		this.field = field;
 	}
 
 }

@@ -69,8 +69,8 @@ public class RaceInfoOnlyOneRaceRepository {
 
 				raceName = raceInfo.getRaceName();
 				raceDay = raceInfo.getRaceDay();
-				raceDetail = raceInfo.getRaceDetail();
-				feild = raceInfo.getFeild();
+				//raceDetail = raceInfo.getRaceDetail();
+				//feild = raceInfo.getFeild();
 
 				Connection con = DBManager.createConnection();
 

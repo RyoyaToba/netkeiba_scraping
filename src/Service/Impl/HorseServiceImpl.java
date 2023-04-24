@@ -142,7 +142,7 @@ public class HorseServiceImpl implements HorseService {
                  * </dl>
                  * <p class="detail_link"><a href="/horse/ped/2017106711/" title="パンサラッサの血統詳細">血統詳細・兄弟馬</a></p>
                  * </div>
-                 * </div><!-- /.db_prof_area_02" -->
+                 * </div>
                  * */
 
                 System.out.println(horseId + "のDOCUMENTを取得しました");

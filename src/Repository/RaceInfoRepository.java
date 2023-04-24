@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.util.Map;
+
+import SQL.RaceInfoData;
 import Service.Impl.CurrentRaceInfoServiceImpl;
 import Service.Impl.OldRaceInfoServiceImpl;
 import Entity.race.RaceInfo;
@@ -61,6 +63,8 @@ public class RaceInfoRepository {
             /* レースIdを作成 */
             String raceId = createRaceId.createRaceId(year, placeNum, countNum, dayNum, raceNum);
 
+            System.err.println(raceId);
+
             String raceName = "";
             String raceDetail = "";
             String raceDay = "";
@@ -84,32 +88,12 @@ public class RaceInfoRepository {
               continue;
             }
 
-            raceName = raceInfo.getRaceName();
-            raceDay = raceInfo.getRaceDay();
-            raceDetail = raceInfo.getRaceDetail();
-            feild = raceInfo.getFeild();
+            raceInfo.setRaceNumber(raceNumber);
 
-            //Connection con = DBManager.createConnection();
+            RaceInfoData raceInfoData = new RaceInfoData();
 
-            //try {
-//              sql =
-//                  "INSERT INTO race_info (race_id, race_day, race_number, race_name, race_detail, feild) VALUES('"
-//                      + raceId + "'," + "'" + raceDay + "'," + "'" + raceNumber + "'," + "'"
-//                      + raceName + "'," + "'" + raceDetail + "'," + "'" + feild + "');";
-//
-//              pstmt = con.prepareStatement(sql);
-//              pstmt.executeUpdate();
-//
-//            } catch (Exception e) {
-//              e.printStackTrace();
-//            } finally {
-//              DBManager.closeConnection(con);
-//            }
+            System.out.println(raceInfoData.insert(raceInfo));
 
-            System.out.println(
-                "INSERT INTO race_info (race_id, race_day, race_number, race_name, race_detail, field) VALUES('"
-                    + raceId + "'," + "'" + raceDay + "'," + "'" + raceNumber + "'," + "'"
-                    + raceName + "'," + "'" + raceDetail + "'," + "'" + feild + "');");
           }
         }
       }
