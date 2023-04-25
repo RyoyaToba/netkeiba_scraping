@@ -28,7 +28,7 @@ public class OldRaceInfoServiceImpl implements RaceInfoService {
 		Elements raceDaying = document.select("p.smalltxt");
 		for (Element element : raceDaying) {
 			raceDay = element.text().substring(5, element.text().indexOf("日") + 1);
-			raceInfo.setRaceDay(raceDay.replace(" ", ""));
+			//raceInfo.setRaceDay(raceDay.replace(" ", ""));
 		}
 
 		if (raceDay.equals("")) {

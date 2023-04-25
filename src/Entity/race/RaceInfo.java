@@ -1,14 +1,15 @@
 package Entity.race;
 
+import java.sql.Date;
+
 public class RaceInfo {
 
 	private String raceId;
-	private String raceDay;
-	private String raceNumber;
+	private Date raceDay;
 	private String raceName;
 	private String raceType;
 	private String distance;
-	private String field;
+	private String fieldCondition;
 
 	public String getRaceId() {
 		return raceId;
@@ -18,20 +19,12 @@ public class RaceInfo {
 		this.raceId = raceId;
 	}
 
-	public String getRaceDay() {
+	public Date getRaceDay() {
 		return raceDay;
 	}
 
-	public void setRaceDay(String raceDay) {
+	public void setRaceDay(Date raceDay) {
 		this.raceDay = raceDay;
-	}
-
-	public String getRaceNumber() {
-		return raceNumber;
-	}
-
-	public void setRaceNumber(String raceNumber) {
-		this.raceNumber = raceNumber;
 	}
 
 	public String getRaceName() {
@@ -56,12 +49,12 @@ public class RaceInfo {
 
 	public void setRaceType(String raceType) {this.raceType = raceType;}
 
-	public String getField() {
-		return field;
+	public String getFieldCondition() {
+		return fieldCondition;
 	}
 
-	public void setField(String field) {
-		this.field = field;
+	public void setFieldCondition(String fieldCondition) {
+		this.fieldCondition = fieldCondition;
 	}
 
 }

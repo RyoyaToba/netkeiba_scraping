@@ -1,6 +1,7 @@
 package Service.Impl;
 
 import java.io.IOException;
+import java.sql.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -21,6 +22,8 @@ public class CurrentRaceInfoServiceImpl implements RaceInfoService {
 	public RaceInfo createRaceInfo(String raceId) throws IOException {
 
 		RaceInfo raceInfo = new RaceInfo();
+
+		String year = raceId.substring(0,4);
 
 		String url = NetkeibaURL.CURRENT_RACE_RESULT_PAGE_BEFORE_URL + raceId
 				   + NetkeibaURL.CURRENT_RACE_RESULT_PAGE_AFTER_URL;
@@ -48,7 +51,8 @@ public class CurrentRaceInfoServiceImpl implements RaceInfoService {
 		// TODO convert String -> Date or DataTime
 		Elements dd = document.select("dd.Active");
 		for (Element element : dd) {
-			raceInfo.setRaceDay(element.text());
+			Date raceDay = convertRaceDayStringToDate(year, element.text());
+			raceInfo.setRaceDay(raceDay);
 		}
 
 		// 芝 or ダート + 距離
@@ -64,11 +68,11 @@ public class CurrentRaceInfoServiceImpl implements RaceInfoService {
 		Elements raceData02 = document.select(".RaceData01 > span:nth-of-type(3)");
 		for (Element element : raceData02) {
 			if (element == null) {
-				raceInfo.setField(" ");
+				raceInfo.setFieldCondition(" ");
 			} else {
 				String field = (element.text()).substring(2, (element.text().length()));
-				field = convertFieldStringToNumber(field);
-				raceInfo.setField(field);
+				field = convertFieldConditionStringToNumber(field);
+				raceInfo.setFieldCondition(field);
 			}
 		}
 		return raceInfo;
@@ -107,21 +111,43 @@ public class CurrentRaceInfoServiceImpl implements RaceInfoService {
 	}
 
 
-	private String convertFieldStringToNumber(String field){
+	private String convertFieldConditionStringToNumber(String fieldCondition){
 
-		field = field.substring(field.indexOf(":") + 1, field.length());
+		fieldCondition = fieldCondition.substring(fieldCondition.indexOf(":") + 1, fieldCondition.length());
 
-		System.out.println(field);
-
-		switch (field){
+		switch (fieldCondition){
 
 			case "良":
-				field = "1";
+				fieldCondition = "1";
+				break;
+			case "稍":
+				fieldCondition = "2";
+				break;
+			case "重":
+				fieldCondition = "3";
 				break;
 			default:
-				field = null;
+				fieldCondition = null;
 
 		}
-		return field;
+		return fieldCondition;
 	}
+
+	private Date convertRaceDayStringToDate(String year,String raceDay){
+		// TODO think of a better logic
+		 String trimDayOfWeekDay = raceDay.substring(0,raceDay.indexOf("日") + 1);
+		 String month = trimDayOfWeekDay.substring(0,trimDayOfWeekDay.indexOf("月"));
+		 String day = trimDayOfWeekDay.substring(trimDayOfWeekDay.indexOf("月") + 1,trimDayOfWeekDay.indexOf("日"));
+
+		 Date raceDayConvertDate = Date.valueOf(year + "-" + month + "-" + day);
+
+		 return raceDayConvertDate;
+	}
+
+
+
+
+
+
+
 }
