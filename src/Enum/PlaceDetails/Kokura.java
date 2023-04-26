@@ -15,9 +15,9 @@ public enum Kokura implements PlaceDetails {
 
     private String dayNum;
 
-    private Kokura(String dayNum, String countNum){
-        this.dayNum = dayNum;
+    private Kokura(String countNum, String dayNum){
         this.countNum = countNum;
+        this.dayNum = dayNum;
     }
 
     @Override

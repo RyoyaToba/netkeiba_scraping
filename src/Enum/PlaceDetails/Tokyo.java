@@ -17,9 +17,10 @@ public enum Tokyo implements PlaceDetails {
 
     private String dayNum;
 
-    private Tokyo(String dayNum, String countNum){
-        this.dayNum = dayNum;
+    private Tokyo(String countNum, String dayNum){
+
         this.countNum = countNum;
+        this.dayNum = dayNum;
     }
 
     @Override

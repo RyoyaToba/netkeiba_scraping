@@ -15,9 +15,10 @@ public enum Hakodate implements PlaceDetails {
 
     private String dayNum;
 
-    private Hakodate(String dayNum, String countNum){
-        this.dayNum = dayNum;
+    private Hakodate(String countNum, String dayNum){
+
         this.countNum = countNum;
+        this.dayNum = dayNum;
     }
 
     @Override

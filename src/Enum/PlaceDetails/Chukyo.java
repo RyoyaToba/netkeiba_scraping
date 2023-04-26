@@ -15,9 +15,9 @@ public enum Chukyo implements PlaceDetails {
 
     private String dayNum;
 
-    private Chukyo(String dayNum, String countNum){
-        this.dayNum = dayNum;
+    private Chukyo(String countNum, String dayNum){
         this.countNum = countNum;
+        this.dayNum = dayNum;
     }
 
     @Override

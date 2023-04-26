@@ -15,9 +15,10 @@ public enum Hanshin implements PlaceDetails {
 
     private String dayNum;
 
-    private Hanshin(String dayNum, String countNum){
-        this.dayNum = dayNum;
+    private Hanshin(String countNum, String dayNum){
+
         this.countNum = countNum;
+        this.dayNum = dayNum;
     }
 
     @Override

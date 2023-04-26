@@ -15,9 +15,9 @@ public enum Kyoto implements PlaceDetails {
 
     private String dayNum;
 
-    private Kyoto(String dayNum, String countNum){
-        this.dayNum = dayNum;
+    private Kyoto(String countNum, String dayNum){
         this.countNum = countNum;
+        this.dayNum = dayNum;
     }
 
     @Override

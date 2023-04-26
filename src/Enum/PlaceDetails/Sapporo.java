@@ -13,13 +13,13 @@ public enum Sapporo implements PlaceDetails {
 
     Y2020("","");
 
-    private String countNum;
+    private String countNum; // 実施回数
 
-    private String dayNum;
+    private String dayNum; // 実施日数
 
-    private Sapporo(String dayNum, String countNum){
-        this.dayNum = dayNum;
+    private Sapporo(String countNum, String dayNum){
         this.countNum = countNum;
+        this.dayNum = dayNum;
     }
 
     @Override

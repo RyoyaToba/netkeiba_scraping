@@ -15,9 +15,9 @@ public enum Nigata implements PlaceDetails {
 
     private String dayNum;
 
-    private Nigata(String dayNum, String countNum){
-        this.dayNum = dayNum;
+    private Nigata(String countNum, String dayNum){
         this.countNum = countNum;
+        this.dayNum = dayNum;
     }
 
     @Override

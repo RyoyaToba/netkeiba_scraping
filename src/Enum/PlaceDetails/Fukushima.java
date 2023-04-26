@@ -15,9 +15,10 @@ public enum Fukushima implements PlaceDetails {
 
     private String dayNum;
 
-    private Fukushima(String dayNum, String countNum){
-        this.dayNum = dayNum;
+    private Fukushima(String countNum, String dayNum){
+
         this.countNum = countNum;
+        this.dayNum = dayNum;
     }
 
     @Override

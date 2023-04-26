@@ -15,9 +15,9 @@ public enum Nakayama implements PlaceDetails {
 
     private String dayNum;
 
-    private Nakayama(String dayNum, String countNum){
-        this.dayNum = dayNum;
+    private Nakayama(String countNum, String dayNum){
         this.countNum = countNum;
+        this.dayNum = dayNum;
     }
 
     @Override
