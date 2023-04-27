@@ -6,7 +6,7 @@ public class RaceInfoData implements Data<RaceInfo>{
 
     @Override
     public String insert(RaceInfo raceInfo) {
-        String SQL = "INSERT INTO race_info (race_id, race_day, race_name, race_type, distance, fieldCondition)"
+        String SQL = "INSERT INTO race_information (id, day, name, type, distance, field_condition)"
                 +"VALUES("
                 +"'" + raceInfo.getRaceId() + "'"
                 +"," + "'" + raceInfo.getRaceDay() + "'"
@@ -15,14 +15,14 @@ public class RaceInfoData implements Data<RaceInfo>{
                 +"," + "'" + raceInfo.getDistance() + "'"
                 +"," + "'" + raceInfo.getFieldCondition() + "'"
                 +")"
-                + "on conflict(race_id) "
-                + "do update set"
-                + "race_id = " + "'" + raceInfo.getRaceId() + "'"
-                + ", race_day = " + "'" + raceInfo.getRaceDay() + "'"
-                + ", race_name = " + "'" + raceInfo.getRaceName() + "'"
-                + ", race_type = " + "'" + raceInfo.getRaceType() + "'"
+                + "on conflict(id) "
+                + "do update set "
+                + "id = " + "'" + raceInfo.getRaceId() + "'"
+                + ", day = " + "'" + raceInfo.getRaceDay() + "'"
+                + ", name = " + "'" + raceInfo.getRaceName() + "'"
+                + ", type = " + "'" + raceInfo.getRaceType() + "'"
                 + ", distance = " + "'" + raceInfo.getDistance() + "'"
-                + ", fieldCondition = " + "'" + raceInfo.getFieldCondition() + "'";
+                + ", field_condition = " + "'" + raceInfo.getFieldCondition() + "'";
 
         return SQL;
     }

@@ -59,12 +59,12 @@ public class OldRaceResultserviceImpl implements RaceResultService {
 
 			Elements wakuing = document.select(".race_table_01 tr:nth-of-type(" + i + ") td:nth-of-type(2)");
 			for (Element element : wakuing) {
-				raceResult.setWaku(Integer.parseInt(element.text()));
+				//raceResult.setWaku(Integer.parseInt(element.text()));
 			}
 
 			Elements horseNumbering = document.select(".race_table_01 tr:nth-of-type(" + i + ") td:nth-of-type(3)");
 			for (Element element : horseNumbering) {
-				raceResult.setHorseNumber(Integer.parseInt(element.text()));
+				//raceResult.setHorseNumber(Integer.parseInt(element.text()));
 			}
 
 			Elements horseNameing = document.select(".race_table_01 tr:nth-of-type(" + i + ") td:nth-of-type(4)");
@@ -82,7 +82,7 @@ public class OldRaceResultserviceImpl implements RaceResultService {
 			for (Element element : ageing) {
 				String ageString = element.text().substring(1, 2);
 				age = Integer.parseInt(ageString);
-				raceResult.setAge(age);
+				//raceResult.setAge(age);
 			}
 
 			Elements jockeyWeighting = document.select(".race_table_01 tr:nth-of-type(" + i + ") td:nth-of-type(6)");
@@ -92,7 +92,7 @@ public class OldRaceResultserviceImpl implements RaceResultService {
 				} else {
 					jockeyWeight = Double.parseDouble(element.text());
 				}
-				raceResult.setJockeyWeight(jockeyWeight);
+				//raceResult.setJockeyWeight(jockeyWeight);
 			}
 
 			Elements jockeyNameting = document.select(".race_table_01 tr:nth-of-type(" + i + ") td:nth-of-type(7)");
