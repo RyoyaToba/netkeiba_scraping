@@ -2,6 +2,8 @@ package SQL;
 
 import Entity.race.RaceInfo;
 
+import java.util.Map;
+
 public class RaceInfoData implements Data<RaceInfo>{
 
     @Override

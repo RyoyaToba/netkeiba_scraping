@@ -5,7 +5,7 @@ import java.util.Map;
 
 public enum Hanshin implements PlaceDetails {
 
-    Y2022("5", "8"),
+    Y2022("6", "12"),
 
     Y2021("",""),
 

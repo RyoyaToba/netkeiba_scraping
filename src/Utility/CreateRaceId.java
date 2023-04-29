@@ -39,22 +39,24 @@ public class CreateRaceId {
 
 		List<String> raceIdList = new ArrayList<>();
 
-		for (int placeNum = 1; placeNum <= 10; placeNum++) {
+		for (int placeNum = 9; placeNum <= 9; placeNum++) {
 			Map<String, Integer> counterMap = createRoopCounter.createRoopCounter2(year, placeNum);
 			int countNumCounter = counterMap.get("countNumCounter");
 			int dayNumCounter = counterMap.get("dayNumCounter");
 
 			for (int countNum = 1; countNum <= countNumCounter; countNum++) {
-				/* 開催日のループ */
-				for (int dayNum = 1; dayNum <= dayNumCounter; dayNum++) {
-					/* レースRのループ */
-					for (int raceNum = 1; raceNum <= 12; raceNum++) {
-						String raceId = createRaceId.createRaceId(year, placeNum, countNum, dayNum, raceNum);
-						raceIdList.add(raceId);
+
+					/* 開催日のループ */
+					for (int dayNum = 1; dayNum <= dayNumCounter; dayNum++) {
+
+							/* レースRのループ */
+						for (int raceNum = 1; raceNum <= 12; raceNum++) {
+							String raceId = createRaceId.createRaceId(year, placeNum, countNum, dayNum, raceNum);
+							raceIdList.add(raceId);
+						}
 					}
 				}
 			}
-		}
 		return raceIdList;
 	}
 }

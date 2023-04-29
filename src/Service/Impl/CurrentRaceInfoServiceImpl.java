@@ -23,61 +23,7 @@ public class CurrentRaceInfoServiceImpl implements RaceInfoService {
 	@Override
 	public RaceInfo createRaceInfo(String raceId) throws IOException {
 
-		RaceInfo raceInfo = new RaceInfo();
-
-		String year = raceId.substring(0,4);
-
-		String url = NetkeibaURL.CURRENT_RACE_RESULT_PAGE_BEFORE_URL + raceId
-				   + NetkeibaURL.CURRENT_RACE_RESULT_PAGE_AFTER_URL;
-
-		Document document = Jsoup.connect(url).get();
-		Elements pageTitle = document.select("title");
-
-		if (pageTitle.outerHtml().equals("<title>  |    - netkeiba.com</title>")) {
-			return null;
-		}
-
-		raceInfo.setRaceId(raceId);
-
-		// レースの名前の取得（例：三歳未勝利戦）
-		Elements raceNaming = document.select("div.raceName");
-		for (Element element : raceNaming) {
-			if (element == null) {
-				raceInfo.setRaceName("");
-			} else {
-				raceInfo.setRaceName(element.text());
-			}
-		}
-
-		// 日付取得（例：４月４日（））
-		// TODO convert String -> Date or DataTime
-		Elements dd = document.select("dd.Active");
-		for (Element element : dd) {
-			Date raceDay = convertRaceDayStringToDate(year, element.text());
-			raceInfo.setRaceDay(raceDay);
-		}
-
-		// 芝 or ダート + 距離
-		Elements raceData01 = document.select(".RaceData01 > span:nth-of-type(1)");
-		for (Element element : raceData01) {
-
-			Map<String, String> raceTypeAndDistanceMap = createRaceTypeAndDistance(element.text());
-			raceInfo.setRaceType(raceTypeAndDistanceMap.get("raceType"));
-			raceInfo.setDistance(raceTypeAndDistanceMap.get("distance"));
-		}
-
-		// 馬場状態
-		Elements raceData02 = document.select(".RaceData01 > span:nth-of-type(3)");
-		for (Element element : raceData02) {
-			if (element == null) {
-				raceInfo.setFieldCondition(" ");
-			} else {
-				String field = (element.text()).substring(2, (element.text().length()));
-				field = convertFieldConditionStringToNumber(field);
-				raceInfo.setFieldCondition(field);
-			}
-		}
-		return raceInfo;
+		return null;
 	}
 
 	public List<RaceInfo> createRaceInfoList(List<String> raceIdList) throws IOException {

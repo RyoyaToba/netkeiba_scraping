@@ -24,6 +24,6 @@ public class RaceResult {
 	private String cornerAccessLocation;
 	private String trainer;
 	private String trainerId;
-	private String stable;
+	private String trainingCenter;
 
 }

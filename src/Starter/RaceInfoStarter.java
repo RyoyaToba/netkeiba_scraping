@@ -1,4 +1,4 @@
-package starter;
+package Starter;
 
 import Entity.race.RaceInfo;
 import Repository.AllRepository;

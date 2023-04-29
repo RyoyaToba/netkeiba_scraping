@@ -2,6 +2,8 @@ package SQL;
 
 import Entity.horse.Horse;
 
+import java.util.Map;
+
 public class HorseData implements Data<Horse> {
 
     @Override
@@ -20,4 +22,5 @@ public class HorseData implements Data<Horse> {
                         + ")";
         return SQL;
     }
+
 }
