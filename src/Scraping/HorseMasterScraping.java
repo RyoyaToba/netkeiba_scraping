@@ -22,10 +22,11 @@ public class HorseMasterScraping {
     public static List<Horse> createHorseMasterList(List<String> horseIdList) throws IOException{
 
         List<Horse> horseList = new ArrayList<>();
+        int loopCount = 1;
+
+        System.out.println("=================Scraping Start==================");
 
         for (String horseId : horseIdList){
-
-            System.out.println(horseId);
 
             try {
                 Thread.sleep(1 * 1000);
@@ -121,8 +122,9 @@ public class HorseMasterScraping {
                 horse.setBreederId(retriveBreederId(element));
             }
 
-            System.out.println(horse);
+            System.out.println("【" + horseId + "】" + "total : " + loopCount);
             horseList.add(horse);
+            loopCount++;
         }
 
         return horseList;
@@ -130,7 +132,7 @@ public class HorseMasterScraping {
 
     private static Date convertBirthDayStringToDate(String birthDay){
 
-        if (!birthDay.contains("年")){
+        if (!birthDay.contains("年") || !birthDay.contains("月") || !birthDay.contains("日")){
             return Date.valueOf("9999-01-01");
         }
 

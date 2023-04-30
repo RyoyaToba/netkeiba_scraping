@@ -10,7 +10,7 @@ import java.util.List;
 public class HorseResultRepository {
     public static List<String> select(String year) {
 
-        String sql = "SELECT distinct horse_id FROM race_result WHERE race_id like " + "'" + year +  "%" + "'";
+        String sql = "SELECT distinct horse_id FROM race_result WHERE race_id like " + "'" + year +  "01%" + "'";
 
         List<String> horseIdList = new ArrayList<>();
 
