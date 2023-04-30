@@ -3,6 +3,7 @@ package Starter;
 import Entity.race.RaceInfo;
 import Repository.AllRepository;
 import SQL.RaceInfoData;
+import Scraping.RaceInfoScraping;
 import Service.Impl.CurrentRaceInfoServiceImpl;
 import Utility.CreateRaceId;
 
@@ -21,8 +22,7 @@ public class RaceInfoStarter {
         List<String> raceIdList = CreateRaceId.createRaceIdList(year);
 
         //if (Integer.parseInt(year) >= 2008) {
-        CurrentRaceInfoServiceImpl raceInfoNewStyle = new CurrentRaceInfoServiceImpl();
-        List<RaceInfo> raceInfoList = raceInfoNewStyle.createRaceInfoList(raceIdList);
+        List<RaceInfo> raceInfoList = RaceInfoScraping.createRaceInfoList(raceIdList);
       /*} else {
         OldRaceInfoServiceImpl raceInfoNewOldStyle = new OldRaceInfoServiceImpl();
         raceInfo = raceInfoNewOldStyle.createRaceInfoList(raceIdList);

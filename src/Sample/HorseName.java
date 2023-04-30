@@ -7,7 +7,7 @@ import java.sql.SQLException;
 
 import Entity.horse.Horse;
 import SQL.Data;
-import SQL.HorseData;
+import SQL.HorseMasterData;
 import Utility.NameEscape;
 import Utility.NetkeibaURL;
 import org.jsoup.Jsoup;
@@ -63,7 +63,7 @@ public class HorseName {
 
         Connection con = DBManager.createConnection();
         try {
-          Data data = new HorseData();
+          Data data = new HorseMasterData();
           String SQL = data.insert(horse);
 
           System.out.println("INSERT INTO horse_profile(name,birth_year,gender,father,mother)"

@@ -1,13 +1,17 @@
 package Service.Impl;
 
 import Entity.horse.Horse;
+import Utility.NameEscape;
 
 import java.io.IOException;
 
 public class SampleImpl {
 
     public static void main(String[] args) {
-        HorseServiceImpl impl = new HorseServiceImpl();
-            impl.createHorse(10);
+
+        String name = "center's half";
+        NameEscape.escape(name);
+        System.out.println(name);
+
     }
 }

@@ -3,6 +3,7 @@ package Starter;
 import Entity.race.RaceResult;
 import Repository.AllRepository;
 import SQL.RaceResultData;
+import Scraping.RaceResultScraping;
 import Service.Impl.CurrentRaceResultServiceImpl;
 import Utility.CreateRaceId;
 
@@ -18,7 +19,7 @@ public class RaceResultStarter {
         List<String> sqlList = new ArrayList<>();
         List<String> raceIdList = CreateRaceId.createRaceIdList(year);
 
-        List<List<RaceResult>> raceResultListOfList = CurrentRaceResultServiceImpl.createraceResultList(raceIdList);
+        List<List<RaceResult>> raceResultListOfList = RaceResultScraping.createraceResultList(raceIdList);
 
         System.out.println(raceResultListOfList);
 

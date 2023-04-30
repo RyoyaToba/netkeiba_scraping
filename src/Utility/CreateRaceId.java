@@ -34,13 +34,13 @@ public class CreateRaceId {
 
 	public static List<String> createRaceIdList(String year) {
 
-		CreateRoopCounter createRoopCounter = new CreateRoopCounter();
+		CreateLoopCounter createRoopCounter = new CreateLoopCounter();
 		CreateRaceId createRaceId = new CreateRaceId();
 
 		List<String> raceIdList = new ArrayList<>();
 
-		for (int placeNum = 9; placeNum <= 9; placeNum++) {
-			Map<String, Integer> counterMap = createRoopCounter.createRoopCounter2(year, placeNum);
+		for (int placeNum = 1; placeNum <= 10; placeNum++) {
+			Map<String, Integer> counterMap = createRoopCounter.createLoopCounter(year, placeNum);
 			int countNumCounter = counterMap.get("countNumCounter");
 			int dayNumCounter = counterMap.get("dayNumCounter");
 
