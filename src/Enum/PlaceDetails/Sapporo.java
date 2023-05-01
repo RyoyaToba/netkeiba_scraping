@@ -11,7 +11,7 @@ public enum Sapporo implements PlaceDetails {
 
     Y2021("2","8"),
 
-    Y2020("","");
+    Y2020("2","8");
 
     private String countNum; // 実施回数
 
@@ -39,6 +39,14 @@ public enum Sapporo implements PlaceDetails {
             case "Y2022":
                 dataMap.put("countNum", Y2022.getCountNum());
                 dataMap.put("dayNum", Y2022.getDayNum());
+                break;
+            case "Y2021":
+                dataMap.put("countNum", Y2021.getCountNum());
+                dataMap.put("dayNum", Y2021.getDayNum());
+                break;
+            case "Y2020":
+                dataMap.put("countNum", Y2020.getCountNum());
+                dataMap.put("dayNum", Y2020.getDayNum());
                 break;
             default:
                 return null;

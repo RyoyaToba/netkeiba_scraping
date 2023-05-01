@@ -9,7 +9,7 @@ public enum Chukyo implements PlaceDetails {
 
     Y2021("6","12"),
 
-    Y2020("","");
+    Y2020("3","9");
 
     private String countNum;
 
@@ -37,6 +37,14 @@ public enum Chukyo implements PlaceDetails {
             case "Y2022":
                 dataMap.put("countNum", Y2022.getCountNum());
                 dataMap.put("dayNum", Y2022.getDayNum());
+                break;
+            case "Y2021":
+                dataMap.put("countNum", Y2021.getCountNum());
+                dataMap.put("dayNum", Y2021.getDayNum());
+                break;
+            case "Y2020":
+                dataMap.put("countNum", Y2020.getCountNum());
+                dataMap.put("dayNum", Y2020.getDayNum());
                 break;
             default:
                 return null;

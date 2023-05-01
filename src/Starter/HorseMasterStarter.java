@@ -19,7 +19,7 @@ public class HorseMasterStarter {
 
     public static void main(String[] args) throws IOException {
 
-        String year = "2022";
+        String year = "2021";
 
         List<String> horseIdList = HorseResultRepository.select(year);
 

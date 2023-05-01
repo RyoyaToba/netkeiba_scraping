@@ -9,7 +9,7 @@ public enum Hanshin implements PlaceDetails {
 
     Y2021("6","12"),
 
-    Y2020("","");
+    Y2020("6","9");
 
     private String countNum;
 
@@ -38,6 +38,10 @@ public enum Hanshin implements PlaceDetails {
             case "Y2022":
                 dataMap.put("countNum", Y2022.getCountNum());
                 dataMap.put("dayNum", Y2022.getDayNum());
+                break;
+            case "Y2021":
+                dataMap.put("countNum", Y2021.getCountNum());
+                dataMap.put("dayNum", Y2021.getDayNum());
                 break;
             default:
                 return null;

@@ -11,7 +11,7 @@ public enum Tokyo implements PlaceDetails {
 
     Y2021("5","12"),
 
-    Y2020("","");
+    Y2020("5","12");
 
     private String countNum;
 
@@ -40,6 +40,14 @@ public enum Tokyo implements PlaceDetails {
             case "Y2022":
                 dataMap.put("countNum", Y2022.getCountNum());
                 dataMap.put("dayNum", Y2022.getDayNum());
+                break;
+            case "Y2021":
+                dataMap.put("countNum", Y2021.getCountNum());
+                dataMap.put("dayNum", Y2021.getDayNum());
+                break;
+            case "Y2020":
+                dataMap.put("countNum", Y2020.getCountNum());
+                dataMap.put("dayNum", Y2020.getDayNum());
                 break;
             default:
                 return null;

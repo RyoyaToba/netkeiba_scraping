@@ -15,13 +15,13 @@ public class RaceResultStarter {
 
     public static void main(String[] args) throws IOException {
 
-        String year = "2022";
+        String year = "2021";
         List<String> sqlList = new ArrayList<>();
         List<String> raceIdList = CreateRaceId.createRaceIdList(year);
 
-        List<List<RaceResult>> raceResultListOfList = RaceResultScraping.createraceResultList(raceIdList);
-
         System.out.println( "【 " + year +"年のレースデータ" +raceIdList.size() + "件を取得します 】");
+
+        List<List<RaceResult>> raceResultListOfList = RaceResultScraping.createraceResultList(raceIdList);
 
         RaceResultData raceResultData = new RaceResultData();
 
