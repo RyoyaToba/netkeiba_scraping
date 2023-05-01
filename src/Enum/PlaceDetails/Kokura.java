@@ -5,9 +5,9 @@ import java.util.Map;
 
 public enum Kokura implements PlaceDetails {
 
-    Y2022("3", "8"),
+    Y2022("4", "8"),
 
-    Y2021("",""),
+    Y2021("4","8"),
 
     Y2020("","");
 

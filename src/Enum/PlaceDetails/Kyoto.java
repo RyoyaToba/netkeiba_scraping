@@ -7,7 +7,7 @@ public enum Kyoto implements PlaceDetails {
 
     Y2022("0", "0"),
 
-    Y2021("",""),
+    Y2021("0","0"),
 
     Y2020("","");
 

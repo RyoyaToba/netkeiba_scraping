@@ -7,7 +7,7 @@ public enum Nakayama implements PlaceDetails {
 
     Y2022("5", "9"),
 
-    Y2021("",""),
+    Y2021("5","9"),
 
     Y2020("","");
 

@@ -21,7 +21,7 @@ public class RaceResultStarter {
 
         List<List<RaceResult>> raceResultListOfList = RaceResultScraping.createraceResultList(raceIdList);
 
-        System.out.println(raceResultListOfList);
+        System.out.println( "【 " + year +"年のレースデータ" +raceIdList.size() + "件を取得します 】");
 
         RaceResultData raceResultData = new RaceResultData();
 
@@ -33,8 +33,6 @@ public class RaceResultStarter {
                 sqlList.add(upsertSql);
             }
         }
-
-        sqlList.stream().forEach(System.out::println);
 
         System.out.println("=================DB Upsert Start==================");
         AllRepository.upsertData(sqlList);

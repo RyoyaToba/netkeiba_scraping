@@ -9,7 +9,7 @@ public enum Sapporo implements PlaceDetails {
 
     Y2022("2", "8"),
 
-    Y2021("",""),
+    Y2021("2","8"),
 
     Y2020("","");
 

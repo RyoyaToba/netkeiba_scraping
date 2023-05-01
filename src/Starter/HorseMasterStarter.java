@@ -3,6 +3,7 @@ package Starter;
 import Entity.horse.Horse;
 import Entity.race.RaceInfo;
 import Repository.AllRepository;
+import Repository.HorseMasterRepository;
 import Repository.HorseResultRepository;
 import SQL.HorseMasterData;
 import SQL.RaceInfoData;
@@ -21,6 +22,11 @@ public class HorseMasterStarter {
         String year = "2022";
 
         List<String> horseIdList = HorseResultRepository.select(year);
+
+        // ------既に登録されているものを除外する場合-------
+        List<String> savedHorseIdList = HorseMasterRepository.select();
+        horseIdList.removeAll(savedHorseIdList);
+        // ------ここまで-------
 
         System.out.println( "【 " + year +"年の出走馬データ" +horseIdList.size() + "件を取得します 】");
         List<Horse> horseMasterList = HorseMasterScraping.createHorseMasterList(horseIdList);

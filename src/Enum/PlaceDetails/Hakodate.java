@@ -7,7 +7,7 @@ public enum Hakodate implements PlaceDetails {
 
     Y2022("1", "12"),
 
-    Y2021("",""),
+    Y2021("1","12"),
 
     Y2020("","");
 

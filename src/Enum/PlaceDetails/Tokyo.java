@@ -9,7 +9,7 @@ public enum Tokyo implements PlaceDetails {
 
     Y2022("5", "12"),
 
-    Y2021("",""),
+    Y2021("5","12"),
 
     Y2020("","");
 

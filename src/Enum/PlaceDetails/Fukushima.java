@@ -7,7 +7,7 @@ public enum Fukushima implements PlaceDetails {
 
     Y2022("3", "8"),
 
-    Y2021("",""),
+    Y2021("2","6"),
 
     Y2020("","");
 

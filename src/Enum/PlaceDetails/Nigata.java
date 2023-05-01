@@ -7,7 +7,7 @@ public enum Nigata implements PlaceDetails {
 
     Y2022("3", "8"),
 
-    Y2021("",""),
+    Y2021("5","8"),
 
     Y2020("","");
 

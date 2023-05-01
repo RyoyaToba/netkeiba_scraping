@@ -32,6 +32,9 @@ public class CreateRaceId {
 		return "0" + target;
 	}
 
+	/** 特定の部分のみを取得したい場合は、以下のステータスを調整すること
+	 *  例：　東京会場の実施レースのみを取得したい　→　placeNumを5〜5に設定　など
+	 * */
 	public static List<String> createRaceIdList(String year) {
 
 		CreateLoopCounter createRoopCounter = new CreateLoopCounter();

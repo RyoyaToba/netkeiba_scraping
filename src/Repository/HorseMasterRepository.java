@@ -1,16 +1,18 @@
 package Repository;
 
-import Entity.race.RaceResult;
 import Utility.DBManager;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HorseResultRepository {
-    public static List<String> select(String year) {
+public class HorseMasterRepository {
+    public static List<String> select() {
 
-        String sql = "SELECT distinct horse_id FROM race_result WHERE race_id like " + "'" + year +  "10%" + "'";
+        String sql = "SELECT distinct id FROM horse_master";
 
         List<String> horseIdList = new ArrayList<>();
 
@@ -19,7 +21,7 @@ public class HorseResultRepository {
              ResultSet rs = statement.executeQuery(sql);) {
 
             while(rs.next()){
-                String horseId = rs.getString("horse_id");
+                String horseId = rs.getString("id");
                 horseIdList.add(horseId);
             }
 

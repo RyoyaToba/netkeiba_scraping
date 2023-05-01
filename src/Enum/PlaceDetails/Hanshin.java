@@ -7,7 +7,7 @@ public enum Hanshin implements PlaceDetails {
 
     Y2022("6", "12"),
 
-    Y2021("",""),
+    Y2021("6","12"),
 
     Y2020("","");
 
