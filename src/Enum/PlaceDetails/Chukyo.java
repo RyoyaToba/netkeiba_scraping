@@ -5,6 +5,8 @@ import java.util.Map;
 
 public enum Chukyo implements PlaceDetails {
 
+    Y2023("2","12"),
+
     Y2022("6", "12"),
 
     Y2021("6","12"),
@@ -13,19 +15,19 @@ public enum Chukyo implements PlaceDetails {
 
     Y2019("4","8"),
 
-    Y2018("",""),
+    Y2018("4","8"),
 
-    Y2017("",""),
+    Y2017("4","8"),
 
-    Y2016("",""),
+    Y2016("4","8"),
 
-    Y2015("",""),
+    Y2015("4","8"),
 
-    Y2014("",""),
+    Y2014("4","8"),
 
-    Y2013("",""),
+    Y2013("4","8"),
 
-    Y2012("","");
+    Y2012("3","8");
 
     private String countNum;
 
@@ -50,6 +52,10 @@ public enum Chukyo implements PlaceDetails {
         Map<String, String> dataMap = new HashMap<>();
 
         switch (targetYear){
+            case "Y2023":
+                dataMap.put("countNum", Y2023.getCountNum());
+                dataMap.put("dayNum", Y2023.getDayNum());
+                break;
             case "Y2022":
                 dataMap.put("countNum", Y2022.getCountNum());
                 dataMap.put("dayNum", Y2022.getDayNum());

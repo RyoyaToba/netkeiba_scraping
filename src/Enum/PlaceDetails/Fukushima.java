@@ -5,6 +5,8 @@ import java.util.Map;
 
 public enum Fukushima implements PlaceDetails {
 
+    Y2023("1","6"),
+
     Y2022("3", "8"),
 
     Y2021("2","6"),
@@ -13,19 +15,19 @@ public enum Fukushima implements PlaceDetails {
 
     Y2019("3","8"),
 
-    Y2018("",""),
+    Y2018("3","8"),
 
-    Y2017("",""),
+    Y2017("3","8"),
 
-    Y2016("",""),
+    Y2016("3","8"),
 
-    Y2015("",""),
+    Y2015("3","8"),
 
-    Y2014("",""),
+    Y2014("4","8"),
 
-    Y2013("",""),
+    Y2013("3","9"),
 
-    Y2012("","");
+    Y2012("3","8");
 
     private String countNum;
 
@@ -51,6 +53,10 @@ public enum Fukushima implements PlaceDetails {
         Map<String, String> dataMap = new HashMap<>();
 
         switch (targetYear){
+            case "Y2023":
+                dataMap.put("countNum", Y2023.getCountNum());
+                dataMap.put("dayNum", Y2023.getDayNum());
+                break;
             case "Y2022":
                 dataMap.put("countNum", Y2022.getCountNum());
                 dataMap.put("dayNum", Y2022.getDayNum());

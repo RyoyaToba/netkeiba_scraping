@@ -5,6 +5,8 @@ import java.util.Map;
 
 public enum Kyoto implements PlaceDetails {
 
+    Y2023("1","6"),
+
     Y2022("0", "0"),
 
     Y2021("0","0"),
@@ -13,19 +15,19 @@ public enum Kyoto implements PlaceDetails {
 
     Y2019("5","12"),
 
-    Y2018("",""),
+    Y2018("5","12"),
 
-    Y2017("",""),
+    Y2017("5","12"),
 
-    Y2016("",""),
+    Y2016("5","12"),
 
-    Y2015("",""),
+    Y2015("5","12"),
 
-    Y2014("",""),
+    Y2014("5","12"),
 
-    Y2013("",""),
+    Y2013("5","12"),
 
-    Y2012("","");
+    Y2012("5","12");
 
     private String countNum;
 
@@ -50,6 +52,10 @@ public enum Kyoto implements PlaceDetails {
         Map<String, String> dataMap = new HashMap<>();
 
         switch (targetYear){
+            case "Y2023":
+                dataMap.put("countNum", Y2023.getCountNum());
+                dataMap.put("dayNum", Y2023.getDayNum());
+                break;
             case "Y2022":
                 dataMap.put("countNum", Y2022.getCountNum());
                 dataMap.put("dayNum", Y2022.getDayNum());

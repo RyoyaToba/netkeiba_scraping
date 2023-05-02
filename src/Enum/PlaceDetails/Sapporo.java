@@ -7,6 +7,8 @@ import java.util.Map;
 
 public enum Sapporo implements PlaceDetails {
 
+    Y2023("0","0"),
+
     Y2022("2", "8"),
 
     Y2021("2","8"),
@@ -15,19 +17,19 @@ public enum Sapporo implements PlaceDetails {
 
     Y2019("2","6"),
 
-    Y2018("",""),
+    Y2018("2","6"),
 
-    Y2017("",""),
+    Y2017("2","6"),
 
-    Y2016("",""),
+    Y2016("2","6"),
 
-    Y2015("",""),
+    Y2015("2","6"),
 
-    Y2014("",""),
+    Y2014("2","8"),
 
-    Y2013("",""),
+    Y2013("0","0"),
 
-    Y2012("","");
+    Y2012("2","8");
 
     private String countNum; // 実施回数
 
@@ -52,6 +54,10 @@ public enum Sapporo implements PlaceDetails {
         Map<String, String> dataMap = new HashMap<>();
 
         switch (targetYear){
+            case "Y2023":
+                dataMap.put("countNum", Y2023.getCountNum());
+                dataMap.put("dayNum", Y2023.getDayNum());
+                break;
             case "Y2022":
                 dataMap.put("countNum", Y2022.getCountNum());
                 dataMap.put("dayNum", Y2022.getDayNum());

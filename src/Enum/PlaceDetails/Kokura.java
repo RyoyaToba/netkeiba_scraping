@@ -5,6 +5,8 @@ import java.util.Map;
 
 public enum Kokura implements PlaceDetails {
 
+    Y2023("2","8"),
+
     Y2022("4", "8"),
 
     Y2021("4","8"),
@@ -13,19 +15,19 @@ public enum Kokura implements PlaceDetails {
 
     Y2019("2","12"),
 
-    Y2018("",""),
+    Y2018("2","12"),
 
-    Y2017("",""),
+    Y2017("2","12"),
 
-    Y2016("",""),
+    Y2016("2","12"),
 
-    Y2015("",""),
+    Y2015("2","12"),
 
-    Y2014("",""),
+    Y2014("2","12"),
 
-    Y2013("",""),
+    Y2013("2","12"),
 
-    Y2012("","");
+    Y2012("2","12");
 
     private String countNum;
 
@@ -50,6 +52,10 @@ public enum Kokura implements PlaceDetails {
         Map<String, String> dataMap = new HashMap<>();
 
         switch (targetYear){
+            case "Y2023":
+                dataMap.put("countNum", Y2023.getCountNum());
+                dataMap.put("dayNum", Y2023.getDayNum());
+                break;
             case "Y2022":
                 dataMap.put("countNum", Y2022.getCountNum());
                 dataMap.put("dayNum", Y2022.getDayNum());
