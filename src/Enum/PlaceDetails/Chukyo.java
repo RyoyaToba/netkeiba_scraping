@@ -9,7 +9,23 @@ public enum Chukyo implements PlaceDetails {
 
     Y2021("6","12"),
 
-    Y2020("3","9");
+    Y2020("3","9"),
+
+    Y2019("4","8"),
+
+    Y2018("",""),
+
+    Y2017("",""),
+
+    Y2016("",""),
+
+    Y2015("",""),
+
+    Y2014("",""),
+
+    Y2013("",""),
+
+    Y2012("","");
 
     private String countNum;
 
@@ -45,6 +61,38 @@ public enum Chukyo implements PlaceDetails {
             case "Y2020":
                 dataMap.put("countNum", Y2020.getCountNum());
                 dataMap.put("dayNum", Y2020.getDayNum());
+                break;
+            case "Y2019":
+                dataMap.put("countNum", Y2019.getCountNum());
+                dataMap.put("dayNum", Y2019.getDayNum());
+                break;
+            case "Y2018":
+                dataMap.put("countNum", Y2018.getCountNum());
+                dataMap.put("dayNum", Y2018.getDayNum());
+                break;
+            case "Y2017":
+                dataMap.put("countNum", Y2017.getCountNum());
+                dataMap.put("dayNum", Y2017.getDayNum());
+                break;
+            case "Y2016":
+                dataMap.put("countNum", Y2016.getCountNum());
+                dataMap.put("dayNum", Y2016.getDayNum());
+                break;
+            case "Y2015":
+                dataMap.put("countNum", Y2015.getCountNum());
+                dataMap.put("dayNum", Y2015.getDayNum());
+                break;
+            case "Y2014":
+                dataMap.put("countNum", Y2014.getCountNum());
+                dataMap.put("dayNum", Y2014.getDayNum());
+                break;
+            case "Y2013":
+                dataMap.put("countNum", Y2013.getCountNum());
+                dataMap.put("dayNum", Y2013.getDayNum());
+                break;
+            case "Y2012":
+                dataMap.put("countNum", Y2012.getCountNum());
+                dataMap.put("dayNum", Y2012.getDayNum());
                 break;
             default:
                 return null;

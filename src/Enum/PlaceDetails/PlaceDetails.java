@@ -4,10 +4,8 @@ import java.util.Map;
 
 public interface PlaceDetails {
 
-    public String getCountNum();
+    String getCountNum();
 
-    public String getDayNum();
-
-
+    String getDayNum();
 
 }
