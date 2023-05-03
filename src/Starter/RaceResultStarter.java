@@ -2,6 +2,7 @@ package Starter;
 
 import Entity.race.RaceResult;
 import Repository.AllRepository;
+import Repository.RaceInfoRepository;
 import SQL.RaceResultData;
 import Scraping.RaceResultScraping;
 import Service.Impl.CurrentRaceResultServiceImpl;
@@ -17,7 +18,7 @@ public class RaceResultStarter {
 
         String year = "2023";
         List<String> sqlList = new ArrayList<>();
-        List<String> raceIdList = CreateRaceId.createRaceIdList(year);
+        List<String> raceIdList = RaceInfoRepository.select(year);
 
         System.out.println( "【 " + year +"年のレースデータ" +raceIdList.size() + "件を取得します 】");
 
