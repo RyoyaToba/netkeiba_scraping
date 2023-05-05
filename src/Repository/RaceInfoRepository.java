@@ -12,7 +12,7 @@ import java.util.List;
 public class RaceInfoRepository {
     public static List<String> select(String year) {
 
-        String sql = "SELECT distinct id FROM race_result WHERE id like " + "'" + year +  "%" + "'";
+        String sql = "SELECT distinct id FROM race_information WHERE id like " + "'" + year +  "%" + "'";
 
         List<String> raceIdList = new ArrayList<>();
 

@@ -157,6 +157,11 @@ public class HorseMasterScraping {
     }
 
     private static String retriveBreederId(Element element){
+
+        if (!element.outerHtml().contains("breeder/")){
+            return null;
+        }
+
         Integer breederIdStart = element.outerHtml().indexOf("breeder/") + 8;
         Integer breederIdEnd = breederIdStart + 6;
         String breederId = element.outerHtml().substring(breederIdStart, breederIdEnd);

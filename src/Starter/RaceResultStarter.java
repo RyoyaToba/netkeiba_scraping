@@ -16,7 +16,7 @@ public class RaceResultStarter {
 
     public static void main(String[] args) throws IOException {
 
-        String year = "2023";
+        String year = "2012";
         List<String> sqlList = new ArrayList<>();
         List<String> raceIdList = RaceInfoRepository.select(year);
 
