@@ -32,4 +32,37 @@ public class HorseMasterRepository {
 
         return horseIdList;
     }
+
+    public static List<String> selectParentData(String year) {
+
+        String sql = "SELECT distinct " +
+                    "m.father_id, m.mother_id " +
+                    "FROM horse_master as m " +
+                    "JOIN race_result as r " +
+                    "ON m.id = r.horse_id " +
+                    "WHERE r.race_id like " + "'" + year + "05020811%'";
+
+        System.out.println(sql);
+
+        List<String> horseIdList = new ArrayList<>();
+
+        try (Connection con = DBManager.createConnection();
+             Statement statement = con.createStatement();
+             ResultSet rs = statement.executeQuery(sql)) {
+
+            while(rs.next()){
+                String fatherId = rs.getString("father_id");
+                String motherId = rs.getString("mother_id");
+                horseIdList.add(fatherId);
+                horseIdList.add(motherId);
+            }
+
+        } catch (
+                SQLException e) {
+            e.printStackTrace();
+        }
+
+        return horseIdList;
+    }
+
 }

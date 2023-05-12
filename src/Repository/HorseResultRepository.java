@@ -9,8 +9,8 @@ import java.util.List;
 
 public class HorseResultRepository {
     public static List<String> select(String year) {
-
-        String sql = "SELECT distinct horse_id FROM race_result WHERE race_id like " + "'" + year +  "%" + "'";
+        // 分析に必要な競走馬のデータを条件で絞って取得した方がいい。東京レースだけなら05%にするとか
+        String sql = "SELECT distinct horse_id FROM race_result WHERE race_id like " + "'" + year +  "05%" + "'";
 
         List<String> horseIdList = new ArrayList<>();
 
