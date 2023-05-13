@@ -44,7 +44,7 @@ public class HorseMasterScraping {
             /** 馬名 */
             Elements elemHorseNames = document.select(".Name > h1");
             for (Element element : elemHorseNames){
-                String horseName = element.text();
+                String horseName = NameEscape.escape(element.text());
                 horse.setName(horseName);
             }
 
