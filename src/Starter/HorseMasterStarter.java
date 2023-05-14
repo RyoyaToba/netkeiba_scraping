@@ -19,7 +19,7 @@ public class HorseMasterStarter {
 
     public static void main(String[] args) throws IOException {
 
-        String year = "2013";
+        String year = "2012";
 
         // 取得したレース結果から、horseIdを検索し、競走馬情報を登録するなら、これをアクティブにする
         //List<String> horseIdList = HorseResultRepository.select(year);

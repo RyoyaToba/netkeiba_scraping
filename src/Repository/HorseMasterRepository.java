@@ -40,7 +40,7 @@ public class HorseMasterRepository {
                     "FROM horse_master as m " +
                     "JOIN race_result as r " +
                     "ON m.id = r.horse_id " +
-                    "WHERE r.race_id like " + "'" + year + "05020811%'";
+                    "WHERE r.race_id like " + "'" + year + "05021011%'";
 
         System.out.println(sql);
 
