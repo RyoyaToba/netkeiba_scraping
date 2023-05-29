@@ -2,9 +2,9 @@ package Starter;
 
 import Entity.race.RaceInfo;
 import Repository.AllRepository;
+import Repository.RaceInfoRepository;
 import SQL.RaceInfoData;
 import Scraping.RaceInfoScraping;
-import Service.Impl.CurrentRaceInfoServiceImpl;
 import Utility.CreateRaceId;
 
 import java.io.IOException;
@@ -15,19 +15,19 @@ public class RaceInfoStarter {
 
     public static void main(String[] args) throws IOException {
 
-        String year = "2012";
+        String year = "2023";
         List<String> sqlList = new ArrayList<>();
 
         List<String> raceIdList = CreateRaceId.createRaceIdList(year);
 
-        System.out.println( "【 " + year +"年のレースデータ" +raceIdList.size() + "件を取得します 】");
+        // 既に登録されているものを除外しない場合、下２行をコメントアウトにする
+        List<String> savedRaceIdList = RaceInfoRepository.select(year);
+        raceIdList.removeAll(savedRaceIdList);
+        // ここまで
 
-        //if (Integer.parseInt(year) >= 2008) {
+        System.out.println( "【 " + year +"年のレースデータ" + raceIdList.size() + "件を取得します 】");
+
         List<RaceInfo> raceInfoList = RaceInfoScraping.createRaceInfoList(raceIdList);
-      /*} else {
-        OldRaceInfoServiceImpl raceInfoNewOldStyle = new OldRaceInfoServiceImpl();
-        raceInfo = raceInfoNewOldStyle.createRaceInfoList(raceIdList);
-      //}*/
 
         RaceInfoData raceInfoData = new RaceInfoData();
 

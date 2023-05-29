@@ -5,7 +5,7 @@ import java.util.Map;
 
 public enum Nigata implements PlaceDetails {
 
-    Y2023("1","4"),
+    Y2023("1","8"),
 
     Y2022("3", "8"),
 

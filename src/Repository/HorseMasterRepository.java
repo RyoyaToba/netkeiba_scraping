@@ -36,11 +36,11 @@ public class HorseMasterRepository {
     public static List<String> selectParentData(String year) {
 
         String sql = "SELECT distinct " +
-                    "m.father_id, m.mother_id " +
-                    "FROM horse_master as m " +
-                    "JOIN race_result as r " +
-                    "ON m.id = r.horse_id " +
-                    "WHERE r.race_id like " + "'" + year + "06030811%'";
+                     "m.father_id, m.mother_id " +
+                     "FROM horse_master as m " +
+                     "JOIN race_result as r " +
+                     "ON m.id = r.horse_id " +
+                     "WHERE r.race_id like " + "'" + year + "05030211%'";
 
         System.out.println(sql);
 

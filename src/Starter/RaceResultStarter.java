@@ -3,10 +3,9 @@ package Starter;
 import Entity.race.RaceResult;
 import Repository.AllRepository;
 import Repository.RaceInfoRepository;
+import Repository.RaceResultRepository;
 import SQL.RaceResultData;
 import Scraping.RaceResultScraping;
-import Service.Impl.CurrentRaceResultServiceImpl;
-import Utility.CreateRaceId;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -16,9 +15,14 @@ public class RaceResultStarter {
 
     public static void main(String[] args) throws IOException {
 
-        String year = "2012";
+        String year = "2023";
         List<String> sqlList = new ArrayList<>();
         List<String> raceIdList = RaceInfoRepository.select(year);
+
+        // 既に登録されているものは対象から外す場合
+        List<String> savedRaceIdList = RaceResultRepository.findRaceId(year);
+        raceIdList.removeAll(savedRaceIdList);
+        // ここまで
 
         System.out.println( "【 " + year +"年のレースデータ" +raceIdList.size() + "件を取得します 】");
 

@@ -5,7 +5,7 @@ import java.util.Map;
 
 public enum Kyoto implements PlaceDetails {
 
-    Y2023("1","6"),
+    Y2023("1","12"),
 
     Y2022("0", "0"),
 

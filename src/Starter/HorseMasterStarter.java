@@ -1,15 +1,10 @@
 package Starter;
 
 import Entity.horse.Horse;
-import Entity.race.RaceInfo;
 import Repository.AllRepository;
 import Repository.HorseMasterRepository;
-import Repository.HorseResultRepository;
 import SQL.HorseMasterData;
-import SQL.RaceInfoData;
 import Scraping.HorseMasterScraping;
-import Scraping.RaceInfoScraping;
-import Utility.CreateRaceId;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -19,10 +14,10 @@ public class HorseMasterStarter {
 
     public static void main(String[] args) throws IOException {
 
-        String year = "2023";
+        String year = "2012";
 
         // 取得したレース結果から、horseIdを検索し、競走馬情報を登録するなら、これをアクティブにする
-        //List<String> horseIdList = HorseResultRepository.select(year);
+        // List<String> horseIdList = HorseResultRepository.select(year);
 
         // 既に登録された競走馬データの両親の情報を調べたい場合は、こちらをアクティブにする
         List<String> horseIdList = HorseMasterRepository.selectParentData(year);

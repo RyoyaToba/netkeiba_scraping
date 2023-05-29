@@ -7,7 +7,7 @@ import java.util.Map;
 
 public enum Tokyo implements PlaceDetails {
 
-    Y2023("2","8"),
+    Y2023("2","12"),
 
     Y2022("5", "12"),
 
