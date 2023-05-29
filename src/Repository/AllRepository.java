@@ -9,6 +9,10 @@ import java.util.List;
 
 public class AllRepository {
 
+    /**
+     * Upsert Data retrived by scraping in DataBase
+     * @param sqlList
+     * */
     public static void upsertData(List<String> sqlList) {
 
         try (Connection con = DBManager.createConnection();

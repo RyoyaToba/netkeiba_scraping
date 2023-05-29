@@ -4,6 +4,9 @@ import Entity.horse.Horse;
 
 public class HorseMasterData implements Data<Horse> {
 
+    /**
+     * Insert(Upsert) horse_master
+     * */
     @Override
     public String insert(Horse horse) {
 

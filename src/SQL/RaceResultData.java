@@ -6,6 +6,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class RaceResultData implements Data<RaceResult>{
+
+    /**
+     * Insert(Upsert) race_result
+     * */
     @Override
     public String insert(RaceResult raceResult) {
         String raceResultSql = "INSERT INTO race_result (id, race_id, rank, waku, horse_number, horse_id, horse_gender, horse_age, " +

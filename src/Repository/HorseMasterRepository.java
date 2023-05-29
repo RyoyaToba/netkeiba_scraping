@@ -10,6 +10,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class HorseMasterRepository {
+
+    /**
+     *  Retrive id from horse_master
+     *
+     * */
     public static List<String> select() {
 
         String sql = "SELECT distinct id FROM horse_master";
@@ -33,6 +38,10 @@ public class HorseMasterRepository {
         return horseIdList;
     }
 
+    /**
+     * Retrive parents_id from horse_master
+     *
+     * */
     public static List<String> selectParentData(String year) {
 
         String sql = "SELECT distinct " +

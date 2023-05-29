@@ -2,6 +2,10 @@ package Utility;
 
 public class NameEscape {
 
+    /**
+     * If horse's name contains apostrophe('), escape this horse_name.
+     *
+     * */
     public static String escape(String name){
 
         if (!(name.contains("'"))){

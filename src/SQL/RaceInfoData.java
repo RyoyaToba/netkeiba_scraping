@@ -6,6 +6,9 @@ import java.util.Map;
 
 public class RaceInfoData implements Data<RaceInfo>{
 
+    /**
+     * Insert(Upsert) race_information
+     * */
     @Override
     public String insert(RaceInfo raceInfo) {
         String SQL = "INSERT INTO race_information (id, day, name, type, distance, field_condition)"

@@ -7,6 +7,10 @@ import java.util.Map;
 
 public class CreateLoopCounter {
 
+	/**
+	 *
+	 *
+	 * */
 	public Map<String, Integer> createLoopCounter(String year, Integer placeNum){
 
 		Integer countNumCounter = 0;
