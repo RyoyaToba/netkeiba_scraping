@@ -19,6 +19,9 @@ import java.util.Map;
 
 public class HorseMasterScraping {
 
+    /**
+     * Takes a horseIdList as an argument and creates a horseMasterList.
+     * */
     public static List<Horse> createHorseMasterList(List<String> horseIdList) throws IOException{
 
         List<Horse> horseList = new ArrayList<>();
@@ -62,7 +65,6 @@ public class HorseMasterScraping {
                 String fatherId = CurrentRaceResultServiceImpl.returnHorseId(element);
                 horse.setFatherId(fatherId);
             }
-
 
             /** 母馬Id */
             Elements elemMothers = document.select("td.Dam");
