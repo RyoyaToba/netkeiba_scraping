@@ -7,7 +7,7 @@ Please ensure you are aware of the terms of use regarding web scraping, and use 
 ## Tools
 
 - Backend
-  - Java 17 (Spring Boot + Thymeleaf)
+  - Java 17
 
 
 ## Environment Setup
